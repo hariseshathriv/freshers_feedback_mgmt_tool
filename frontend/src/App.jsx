@@ -4,10 +4,12 @@ import Navbar from './components/Navbar'
 function App() {
 
   return (
-    <>
+    <div className='app'>
       <Navbar />
-      <h1>Hello, this is a project setup screen!</h1>
-    </>
+      <div>
+        <h1>Hello, this is a project setup screen!</h1>
+      </div>
+    </div> 
   )
 }
 

@@ -2,11 +2,15 @@ import React from 'react'
 
 function Navbar() {
   return (
-    <div>
-        <nav>
-            <h1 className="text-orange-800">JMAN</h1>
+        <nav className='navbar'>
+            <div className='navBox'>
+                <a href="/">
+                    <h1 className="text-3xl">JMAN</h1>
+                </a>
+
+                <span className="text-3xl">FRESHERS FEEDBACK MANAGEMENT TOOL</span>
+            </div>
         </nav>
-    </div>
   )
 }
 
