@@ -1,14 +1,13 @@
 import './App.css'
 import Navbar from './components/Navbar'
+import Login from './components/Login'
 
 function App() {
 
   return (
     <div className='app'>
       <Navbar />
-      <div>
-        <h1>Hello, this is a project setup screen!</h1>
-      </div>
+      <Login />
     </div> 
   )
 }
