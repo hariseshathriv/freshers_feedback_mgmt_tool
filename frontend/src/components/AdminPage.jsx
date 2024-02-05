@@ -8,30 +8,30 @@ import { useCallback } from 'react';
 
 const AdminPage = () => {
     const mentors = ['Nitesh','Rahul','Rohit','Pahal','Johith','Sudheer','Vergab','Abhay','Mihir','Leo','Hari','Naveen','Doss','Modi','Narendra','Nitesh','Rahul','Rohit','Pahal','Johith','Sudheer','Vergab','Abhay','Mihir','Leo','Hari','Naveen','Doss','Modi','Narendra']
-    mentors.sort();
-
-    let mentorsInSmallCase = []
-    let convertMentorsToSmallCase = useCallback(()=>{
-        mentors.forEach((value)=>mentorsInSmallCase.push(value.toLowerCase()));
-    },[mentors])
-
-    const [data,setData ] = useState(mentors);
+    
+    const [data,setData ] = useState([]);
+    const [filteredData,setFilteredData] = useState([]);
     const [adminName,setAdminName] = useState("Leo");
     const [showInput,setShowInput] = useState(false);
     const [searchName,setSearchName] = useState("");
+    
     useEffect(()=>{
-        convertMentorsToSmallCase();
-        if(searchName === "") setData(mentors);
+        mentors.sort();
+        setData(mentors);
+        setFilteredData(mentors);
+    },[])
+    
+    let handleSearch = (searchKey)=>{
+        if(showInput==="") setFilteredData(data);
         else{
-            let newMentor=[];
-            let len=searchName.length;
-            let tempSearchName = searchName.toLowerCase();
-            mentorsInSmallCase.forEach((mentor,index)=>{
-                if(mentor.length>=len && mentor.substring(0,len)===tempSearchName) newMentor.push(mentors[index]);
+            let strr = searchKey.toLowerCase();
+            const fData = data.filter((mentor)=>{
+                if(mentor.toLowerCase().includes(strr)) return true;
+                return false;
             })
-            setData(newMentor);
+            setFilteredData(fData);
         }
-    },[searchName])
+    }
 
     const handleSearchClick = ()=>setShowInput(!showInput);
     return (
@@ -51,7 +51,10 @@ const AdminPage = () => {
                                     placeholder='Mentor Name' 
                                     className='text-center border border-none text-cyan-800 text-2xl p-1 rounded-md mx-1 focus:outline-none focus:ring focus:ring-cyan-500' 
                                     value={searchName} 
-                                    onChange={(e)=>setSearchName(e.target.value)}
+                                    onChange={(e)=>{
+                                        setSearchName(e.target.value);
+                                        handleSearch(e.target.value);
+                                    }}
                                 />
                             )
                         }
@@ -59,7 +62,7 @@ const AdminPage = () => {
                     </div>
                     <div className="p-4 bg-blue-200 grid grid-cols-3 md:grid-cols-4 gap-y-5 lg:gap-x-20 xl:gap-x-40 rounded-xl m-2">
                     {
-                        data.map((item,index)=>{
+                        filteredData.map((item,index)=>{
                             return(
                                 <div key={index} className='md:m-3 md:p-3 border border-solid border-slate-900 rounded-lg text-center md:text-3xl bg-red-300 cursor-pointer'>
                                     <a href='#'>{item}</a>
