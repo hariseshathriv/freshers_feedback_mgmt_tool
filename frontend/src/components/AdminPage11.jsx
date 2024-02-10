@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { useCallback } from 'react';
 
 
-const AdminPage = () => {
+const AdminPage11 = () => {
     const mentors = ['Nitesh','Rahul','Rohit','Pahal','Johith','Sudheer','Vergab','Abhay','Mihir','Leo','Hari','Naveen','Doss','Modi','Narendra','Nitesh','Rahul','Rohit','Pahal','Johith','Sudheer','Vergab','Abhay','Mihir','Leo','Hari','Naveen','Doss','Modi','Narendra']
     
     const [data,setData ] = useState([]);
@@ -77,4 +77,4 @@ const AdminPage = () => {
     )
 }
 
-export default AdminPage
+export default AdminPage11

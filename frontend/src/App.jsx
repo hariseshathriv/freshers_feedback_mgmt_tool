@@ -1,7 +1,9 @@
 import './App.css'
 import Navbar from './components/Navbar'
 import Login from './components/Login'
-import AdminPage from './components/AdminPage'
+import AdminPage from './components/Admin/AdminPage'
+import MenteeView from './components/Admin/MenteeView'
+import WeeklyComments from './components/Admin/WeeklyComments'
 
 function App() {
 
