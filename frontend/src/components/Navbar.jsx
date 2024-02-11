@@ -1,7 +1,9 @@
 import React from 'react'
+import UserInfo from './Mentor/UserInfo'
 
 function Navbar() {
   return (
+    <>
         <nav className='navbar'>
             <div className='navBox'>
                 <a href="/">
@@ -11,6 +13,8 @@ function Navbar() {
                 <span className="text-3xl">FRESHERS FEEDBACK MANAGEMENT TOOL</span>
             </div>
         </nav>
+        <UserInfo name={"Hari"}/>
+    </>
   )
 }
 

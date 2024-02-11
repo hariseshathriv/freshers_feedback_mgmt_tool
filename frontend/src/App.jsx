@@ -7,9 +7,9 @@ import MenteeView from './components/Admin/MenteeView'
 import WeeklyComments from './components/Admin/WeeklyComments'
 import MentorRegistration from './components/MentorRegistration'
 import Layout from './Layout'
+import MentorDashboard from './components/Mentor/Dashboard'
 
 function App() {
-
   return (
 
     <BrowserRouter>
@@ -19,7 +19,7 @@ function App() {
           <Route path='/' element={<Login/>} />
           <Route path='/login' element={<Login/>} />
           <Route path='/registration' element={<MentorRegistration />} />
-          <Route path='/mentorDashboard' element={<h1>mentorDashboard</h1>} />
+          <Route path='/mentorDashboard' element={<MentorDashboard/>} />
           <Route path='/adminDashboard' element={<Layout/>} >
             <Route path = "/adminDashboard/:key1" element = {<MenteeView />} />
             <Route path = "/adminDashboard/:key1/:key2" element = {<WeeklyComments />} />
@@ -30,5 +30,4 @@ function App() {
     </BrowserRouter>
   )
 }
-
 export default App

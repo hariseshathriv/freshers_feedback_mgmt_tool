@@ -7,7 +7,7 @@ import { Outlet } from "react-router-dom";
 const Layout = ()=>{
     const [path, setPath] = useState("");
     return (
-        <div className="flex w-full h-[calc(100vh-82px)]">
+        <div className="flex w-full h-[calc(100vh-120px)]">
             <AdminPage/>
             <Outlet  />
         </div>
