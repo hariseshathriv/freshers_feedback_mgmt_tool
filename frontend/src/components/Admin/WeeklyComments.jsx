@@ -11,7 +11,7 @@ const WeeklyComments = ({mentee='abhay'}) => {
     const {key1 , key2} = useParams();
     const navigate = useNavigate();
     const goBack = ()=>{
-        navigate(`/${key1}`)
+        navigate(`/adminDashboard/${key1}`)
     }
     useEffect(()=>{
         let totalWeek = parseInt((Math.random())*10)%6;

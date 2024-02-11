@@ -23,7 +23,7 @@ function MenteeView({Mentor='Hari'}) {
         <div className="grid grid-cols-3 gap-y-5 gap-x-40 p-2">
           {
             menteesName.map((mentee,index)=>(
-              <Link to={`/admin/${key1}/${mentee}`} className='border border-solid border-cyan-800 rounded-lg p-2 text-2xl text-blue-900 text-nowrap overflow-hidden text-ellipsis text-center bg-[#f5c691] shadow-lg'>
+              <Link to={`/adminDashboard/${key1}/${mentee}`} className='border border-solid border-cyan-800 rounded-lg p-2 text-2xl text-blue-900 text-nowrap overflow-hidden text-ellipsis text-center bg-[#f5c691] shadow-lg'>
                 {mentee}
               </Link>
             ))

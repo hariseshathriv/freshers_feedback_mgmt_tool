@@ -84,7 +84,7 @@ const AdminPage = ({ AdminData }) => {
           {filteredMentorsName.length &&
             filteredMentorsName.map((mentor, index) => (
               <Link
-                to={`/admin/${mentor}`}
+                to={`/adminDashboard/${mentor}`}
                 className="w-11/12 m-1 p-2 pb-1 text-left text-2xl text-gray-200 text-ellipsis overflow-x-hidden "
               >
                 {mentor}

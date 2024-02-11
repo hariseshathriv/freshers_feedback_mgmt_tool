@@ -18,6 +18,8 @@
     border-bottom: 10px solid #18105B;
     margin-bottom: 10px;
     padding: 8px 0px;
+    position:sticky;
+    top:0;
 }
 
 .navBox{
@@ -27,9 +29,9 @@
 }
 
 
-/* LOGIN CSS */
+/* -------------------------- LOGIN CSS -------------------------- */
 .loginHeading{
-    color: #7E78AA;
+    color: #19106f;
 }
 
 .loginBox{
@@ -38,6 +40,7 @@
     height: 100%;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .login{
@@ -66,11 +69,12 @@
     display: flex;
     flex-direction: column;
 }
+
 .loginLabel{
-    color: white;
-    background-color: #7E78AA;
+    /* color: white; */
+    /* background-color: #7E78AA; */
     border-radius: 7px;
-    padding: 5px 15px;
+    /* padding: 5px 15px; */
     width: fit-content;
     margin-bottom: 5px;
 }
@@ -91,8 +95,79 @@
     height: 40px;
     padding: 5px;
     border-radius: 5px;
+    outline:0;
 }
 
 .loginBtn:hover{
+    background-color:#19106f;
+}
+
+/* ----------- Mentor Registration CSS ------------- */
+
+.mentorHeading{
+    color: #19106f;
+}
+
+.mentorBox{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mentor{
+    display: flex;
+    width: 600px;
+    height: 550px;
+    border: 2px solid #7E78AA;
+    border-radius: 7px;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    box-shadow: 0 4px 8px 0 #7E78AA, 0 6px 20px 0 #7c76aa;
+}
+
+.mentorForm{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.mentorDiv{
+    width: 75%;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mentorLabel{
+    
+}
+
+.mentorInput{
+    border-bottom: 3px solid #7E78AA;
+    width: 200px;
+    outline:0;
+}
+
+.mentorBtn{
+    background-color: #18105B;
+    color: white;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 40px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.mentorBtn:hover{
     background-color:#19106f;
 }
