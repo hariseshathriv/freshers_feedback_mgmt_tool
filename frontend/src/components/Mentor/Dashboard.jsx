@@ -5,7 +5,6 @@ import Data from "./data";
 const Dashboard = () =>{
     return (
         <>
-        <Navbar/>
         <UserInfo name={Data.name}/>
         <Mentor data={Data}/>
         </>
