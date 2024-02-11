@@ -15,8 +15,11 @@ function Login() {
                         <input type="password" id="password" className="loginInput" placeholder='********' required />
                     </div>
                     <button type="submit" className='text-2xl loginBtn'>Login</button>
+
+                    <a href="/" className='mt-4 text-xl underline'>Forgot Password?</a>
                 </form>
         </div>
+        <a href="/registration" className='mt-8 text-xl underline'>New User? Register</a>
     </div>
   )
 }

@@ -1,18 +1,22 @@
 import './App.css'
-// import Navbar from './components/Navbar'
-// import Login from './components/Login'
-import Dashboard from './components/Mentor/Dashboard'
-import {BrowserRouter,Routes,Route} from 'react-router-dom';
+import {BrowserRouter,Routes,Route} from "react-router-dom"
+import Navbar from './components/Navbar'
+import Login from './components/Login'
+import MentorRegistration from './components/MentorRegistration'
+
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<h1>Login Component</h1>}/>
-        <Route path="/login" element={<h1>Login Component</h1>}/>
-        <Route path="/registration" element={<h1>Registration Component</h1>}/>
-        <Route path="/mentorDashboard" element={<Dashboard/>}/>
-        <Route path="/adminDashboard" element={<h1>Admin Component</h1>}/>
-      </Routes>
+      <div className='app'>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Login/>} />
+          <Route path='/login' element={<Login/>} />
+          <Route path='/registration' element={<MentorRegistration />} />
+          <Route path='/mentorDashboard' element={<h1>mentorDashboard</h1>} />
+          <Route path='/adminDashboard' element={<h1>adminDashboard</h1>} />
+        </Routes>
+      </div> 
     </BrowserRouter>
   )
 }
