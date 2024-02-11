@@ -93,6 +93,7 @@
     height: 40px;
     padding: 5px;
     border-radius: 5px;
+    outline:0;
 }
 
 .loginBtn:hover{
@@ -149,6 +150,7 @@
 .mentorInput{
     border-bottom: 3px solid #7E78AA;
     width: 200px;
+    outline:0;
 }
 
 .mentorBtn{
