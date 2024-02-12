@@ -8,16 +8,22 @@ import WeeklyComments from './components/Admin/WeeklyComments'
 import MentorRegistration from './components/MentorRegistration'
 import Layout from './Layout'
 import MentorDashboard from './components/Mentor/Dashboard'
+import { useEffect, useState } from 'react'
 
 function App() {
-  return (
+  const [data, setData] =  useState(null);
 
+  const handleLogin = (userData) => {
+    setData(userData);
+    console.log(data);
+  }
+  
+  return (
     <BrowserRouter>
       <div className='app'>
         <Navbar />
         <Routes>
-          <Route path='/' element={<Login/>} />
-          <Route path='/login' element={<Login/>} />
+          <Route path='/' element={<Login onLogin={handleLogin}/>} />
           <Route path='/registration' element={<MentorRegistration />} />
           <Route path='/mentorDashboard' element={<MentorDashboard/>} />
           <Route path='/adminDashboard' element={<Layout/>} >
