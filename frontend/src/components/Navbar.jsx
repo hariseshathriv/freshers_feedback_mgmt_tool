@@ -13,7 +13,7 @@ function Navbar() {
                 <span className="text-3xl">FRESHERS FEEDBACK MANAGEMENT TOOL</span>
             </div>
         </nav>
-        <UserInfo name={"Hari"}/>
+        <UserInfo />
     </>
   )
 }
