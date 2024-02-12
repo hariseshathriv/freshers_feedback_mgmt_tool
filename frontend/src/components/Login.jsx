@@ -1,20 +1,59 @@
-import React from 'react'
+import React,{useContext, useState} from 'react'
+import UserContext from '../context/UserContext';
 
 function Login() {
+  const [formData, setFormData] = useState({
+    email:'',
+    password:''
+});
+
+const [apiResponse, setApiResponse] = useState(null);
+
+const {setUser} = useContext(UserContext);
+
+const handleInputChange = (e) => {
+  const { name, value } = e.target;
+  setFormData({ ...formData, [name]: value });
+};
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+  console.log("the login data is sent");
+    const response = await fetch('http://localhost:3001/api/users/login'
+    , {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    });
+
+    const data = await response.json();
+    setApiResponse(data.message); 
+    alert('Login is successful')
+    setUser(data) //update the user data here
+    // window.location.href="http://localhost:5173/mentorDashboard"
+  } catch (error) {
+    console.error('Error:', error);
+    setApiResponse('An error occurred. Please try again.');
+  }
+};
+
   return (
     <div className='loginBox'>
         <div className='login'>
             <h2 className='text-3xl loginHeading'>LOGIN</h2>
-            <form class="loginForm">
-                    <div class="mb-5  loginDiv">
-                        <label for="email"className='text-xl loginLabel'>Email</label>
-                        <input type="email" id="email" className="loginInput outline-none" placeholder="name@jman.com" required />
+            <form className="loginForm" >
+                    <div className="mb-5  loginDiv">
+                        <label htmlFor="email"className='text-xl loginLabel'>Email</label>
+                        <input name="email" type="email" id="email" className="loginInput outline-none" placeholder="name@jman.com" required onChange={handleInputChange}/>
                     </div>
-                    <div class="mb-5 loginDiv">
-                        <label for="password"className='text-xl loginLabel'>Password</label>
-                        <input type="password" id="password" className="loginInput outline-none" placeholder='********' required />
+                    <div className="mb-5 loginDiv">
+                        <label htmlFor="password"className='text-xl loginLabel'>Password</label>
+                        <input name="password" type="password" id="password" className="loginInput outline-none" placeholder='********' required onChange={handleInputChange}/>
                     </div>
-                    <button type="submit" className='text-2xl loginBtn'>Login</button>
+                    <button type="submit" className='text-2xl loginBtn' onClick={handleSubmit}>Login</button>
 
                     <a href="/" className='mt-4 text-xl underline'>Forgot Password?</a>
                 </form>
@@ -25,3 +64,5 @@ function Login() {
 }
 
 export default Login
+
+// http://localhost:3001/api/users/login

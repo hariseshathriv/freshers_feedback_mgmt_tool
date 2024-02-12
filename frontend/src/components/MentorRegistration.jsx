@@ -34,7 +34,7 @@ function MentorRegistration() {
             const data = await response.json();
             setApiResponse(data.message);
             alert('Registration is successful')
-            console.log(data);
+            // console.log(data);
             window.location.href="http://localhost:5173/"
           } catch (error) {
             console.error('Error:', error);

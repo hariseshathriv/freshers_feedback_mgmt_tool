@@ -1,5 +1,7 @@
 import './App.css'
 import {BrowserRouter,Routes,Route} from "react-router-dom"
+import { useEffect, useState } from 'react'
+
 import Navbar from './components/Navbar'
 import Login from './components/Login'
 import AdminPage from './components/Admin/AdminPage'
@@ -8,32 +10,31 @@ import WeeklyComments from './components/Admin/WeeklyComments'
 import MentorRegistration from './components/MentorRegistration'
 import Layout from './Layout'
 import MentorDashboard from './components/Mentor/Dashboard'
-import { useEffect, useState } from 'react'
+
+import UserContextProvider from './context/UserContextProvider'
 
 function App() {
-  const [data, setData] =  useState(null);
-
-  const handleLogin = (userData) => {
-    setData(userData);
-    console.log(data);
-  }
   
   return (
-    <BrowserRouter>
-      <div className='app'>
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<Login onLogin={handleLogin}/>} />
-          <Route path='/registration' element={<MentorRegistration />} />
-          <Route path='/mentorDashboard' element={<MentorDashboard/>} />
-          <Route path='/adminDashboard' element={<Layout/>} >
-            <Route path = "/adminDashboard/:key1" element = {<MenteeView />} />
-            <Route path = "/adminDashboard/:key1/:key2" element = {<WeeklyComments />} />
-          </Route>
+    <UserContextProvider>
 
-        </Routes>
-      </div> 
-    </BrowserRouter>
+      <BrowserRouter>
+        <div className='app'>
+          <Navbar />
+          <Routes>
+            <Route path='/' element={<Login />} />
+            <Route path='/registration' element={<MentorRegistration />} />
+            <Route path='/mentorDashboard' element={<MentorDashboard/>} />
+            <Route path='/adminDashboard' element={<Layout/>} >
+              <Route path = "/adminDashboard/:key1" element = {<MenteeView />} />
+              <Route path = "/adminDashboard/:key1/:key2" element = {<WeeklyComments />} />
+            </Route>
+
+          </Routes>
+        </div> 
+      </BrowserRouter>
+    </UserContextProvider>
+
   )
 }
 export default App
