@@ -1,6 +1,6 @@
 import './App.css'
 import {BrowserRouter,Routes,Route} from "react-router-dom"
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 
 import Navbar from './components/Navbar'
 import Login from './components/Login'
@@ -13,8 +13,9 @@ import MentorDashboard from './components/Mentor/Dashboard'
 
 import UserContextProvider from './context/UserContextProvider'
 
+import UserContext from './context/UserContext'
+
 function App() {
-  
   return (
     <UserContextProvider>
 

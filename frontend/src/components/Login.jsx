@@ -1,4 +1,5 @@
 import React,{useContext, useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 import UserContext from '../context/UserContext';
 
 function Login() {
@@ -7,9 +8,11 @@ function Login() {
     password:''
 });
 
+const navigate = useNavigate();
+
 const [apiResponse, setApiResponse] = useState(null);
 
-const {setUser} = useContext(UserContext);
+const {user, setUserContext} = useContext(UserContext);
 
 const handleInputChange = (e) => {
   const { name, value } = e.target;
@@ -19,7 +22,6 @@ const handleInputChange = (e) => {
 const handleSubmit = async (e) => {
   e.preventDefault();
   try {
-  console.log("the login data is sent");
     const response = await fetch('http://localhost:3001/api/users/login'
     , {
       method: 'POST',
@@ -31,9 +33,9 @@ const handleSubmit = async (e) => {
 
     const data = await response.json();
     setApiResponse(data.message); 
-    alert('Login is successful')
-    setUser(data) //update the user data here
-    // window.location.href="http://localhost:5173/mentorDashboard"
+    setUserContext(data) //update the user data here
+    alert('Login is successful');
+   navigate('/mentorDashboard');
   } catch (error) {
     console.error('Error:', error);
     setApiResponse('An error occurred. Please try again.');

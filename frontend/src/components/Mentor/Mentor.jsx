@@ -1,9 +1,12 @@
-import {useState} from 'react'
+import {useState, useContext} from 'react'
 import Mentees from "./LeftPane/Mentees";
 import FeedBackMenu from './rightPane/FeedBackMenu';
-const Mentor = ({data}) => {
-    const [mentees,setMentees] = useState(data.mentees);
-    const [mentee,setMentee] = useState(null);
+import UserContext from '../../context/UserContext';
+
+const Mentor = () => {
+    const {user} = useContext(UserContext);
+    const [mentees,setMentees] = useState(user.data.mentees);
+    const [mentee, setMentee] = useState(null);
     return (
         <div className="flex h-screen">
         <div className="w-1/5 bg-black">
