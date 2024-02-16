@@ -12,15 +12,16 @@ import Layout from "./Layout";
 import MentorDashboard from "./components/Mentor/Dashboard";
 
 import UserContextProvider from "./context/UserContextProvider";
-
-import UserContext from "./context/UserContext";
+import LeftNavbar from "./components/LeftNavbar";
 
 function App() {
   return (
     <UserContextProvider>
       <BrowserRouter>
         <div className="app">
-          {/* <Navbar /> */}
+        <LeftNavbar />
+        <div className="flex-col w-full">
+          <Navbar />
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/registration" element={<MentorRegistration />} />
@@ -33,6 +34,7 @@ function App() {
               />
             </Route>
           </Routes>
+        </div>
         </div>
       </BrowserRouter>
     </UserContextProvider>
