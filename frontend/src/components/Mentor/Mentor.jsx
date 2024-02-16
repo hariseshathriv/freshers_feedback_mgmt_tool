@@ -9,10 +9,10 @@ const Mentor = () => {
     const [mentee, setMentee] = useState(null);
     return (
         <div className="flex h-screen">
-        <div className="w-1/5 bg-black">
+        <div className="w-1/5">
             <Mentees mentees={mentees} mentee={mentee} setMentee={setMentee} />
         </div>
-        <div className="w-4/5 bg-zinc-900">
+        <div className="w-4/5">
             <FeedBackMenu mentee={mentee} menteeInfo={mentees.filter((item)=>{return item.id==mentee})}/>
         </div>
         </div>

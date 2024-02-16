@@ -37,10 +37,10 @@ const FeedBackMenu = ({mentee,menteeInfo}) =>{
     <>
       <div className="flex flex-col gap-3 ml-3 mt-8 mr-3 py-3 bg-white">
         <div className="flex justify-center mr-3">
-          <span className="text-3xl ml-auto">Mentee, {menteeInfo[0].name}</span>
+          <span className="text-3xl text-purple-800 ml-auto">Mentee, {menteeInfo[0].name}</span>
           <button
             onClick={()=>handleModal()}
-            className="bg-green-600 rounded border border-solid font-bold text-white px-4 ml-auto"
+            className="bg-purple-700  hover:bg-purple-900 rounded border border-solid font-bold text-white px-4 ml-auto"
           >
             ADD COMMENT
           </button>

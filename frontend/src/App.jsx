@@ -25,7 +25,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/registration" element={<MentorRegistration />} />
-            <Route path="/mentorDashboard" element={<MentorDashboard />} />
+            <Route path="/dashboard" element={<MentorDashboard />} />
             <Route path="/adminDashboard" element={<Layout />}>
               <Route path="/adminDashboard/:key1" element={<MenteeView />} />
               <Route
