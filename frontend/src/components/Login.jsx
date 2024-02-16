@@ -46,7 +46,7 @@ function Login() {
   return (
     <div className="loginBox">
       <img className="jmanLogo" src={logo} alt="jmanImage" />
-      <h1 className="text-3xl navHeading loginHeading mb-10">
+      <h1 className="text-3xl navHeading mb-10">
         Freshers Feedback Management Tool
       </h1>
       <div className="login">

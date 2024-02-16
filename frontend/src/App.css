@@ -40,6 +40,8 @@ body {
 }
 
 .navHeading {
+  padding-top: 4px;
+  color: #19105b;
   overflow: hidden;
   white-space: nowrap;
   animation: revealText 6s ease-out infinite;
@@ -64,7 +66,7 @@ body {
 
 .loginHeading {
   padding-top: 4px;
-  color: #19105b;
+  color: #4a4a4a;
 }
 
 .loginBox {
@@ -72,10 +74,10 @@ body {
   width: 100%;
   height: 100%;
   background-color: white;
-  /* background-image: url(images/backgroundImage.jpg); */
-  background-size: 100%;
+  background-image: url(images/backgroundImage.jpg);
+  background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 0px 0;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -86,7 +88,6 @@ body {
   width: 400px;
   height: 400px;
   background-color: #f2f1f6;
-
   border-radius: 7px;
   flex-direction: column;
   align-items: center;
@@ -123,12 +124,13 @@ body {
   /* padding: 5px 15px; */
   width: fit-content;
   margin-bottom: 5px;
+  color: #19105b;
 }
 
 .loginInput {
   background-color: #f2f1f6;
   margin-top: 5px;
-  border-bottom: 3px solid #7e78aa;
+  border-bottom: 2px solid #ff6196;
 }
 
 .loginBtn {
@@ -146,13 +148,13 @@ body {
 }
 
 .loginBtn:hover {
-  background-color: #19106f;
+  background-color: #ff095c;
 }
 
 /* ----------- Mentor Registration CSS ------------- */
 
 .mentorHeading {
-  color: #19106f;
+  color: #4a4a4a;
 }
 
 .mentorBox {
@@ -162,18 +164,28 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-image: url(images/backgroundImage.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 0px 0;
 }
 
 .mentor {
   display: flex;
   width: 600px;
-  height: 550px;
-  border: 2px solid #7e78aa;
+  height: 530px;
+  background-color: #f2f1f6;
   border-radius: 7px;
   flex-direction: column;
   align-items: center;
-  padding: 5px;
-  box-shadow: 0 4px 8px 0 #7e78aa, 0 6px 20px 0 #7c76aa;
+  padding-top: 7px;
+  padding-bottom: 6px;
+  margin-right: 8rem;
+  box-shadow: 0 2px 4px 0 #f2f1f6, 0 3px 10px 0 #f2f1f6;
+}
+
+.regHeading {
+  margin-right: 8rem;
 }
 
 .mentorForm {
@@ -193,16 +205,18 @@ body {
 }
 
 .mentorLabel {
+  color: #19105b;
 }
 
 .mentorInput {
-  border-bottom: 3px solid #7e78aa;
+  border-bottom: 2px solid #ff6196;
   width: 200px;
+  background-color: #f2f1f6;
   outline: 0;
 }
 
 .mentorBtn {
-  background-color: #18105b;
+  background-color: #19105b;
   color: white;
   margin-top: 25px;
   display: flex;
@@ -215,5 +229,5 @@ body {
 }
 
 .mentorBtn:hover {
-  background-color: #19106f;
+  background-color: #ff095c;
 }
