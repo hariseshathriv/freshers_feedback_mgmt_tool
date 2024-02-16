@@ -48,7 +48,18 @@ body {
 /* -------------------------- LOGIN CSS -------------------------- */
 
 .jmanLogo {
+  position: absolute;
   margin-right: 1100px;
+  margin-bottom: 500px;
+}
+
+.sideImage {
+  position: absolute;
+  width: 24rem;
+  height: 24rem;
+  margin-left: 55rem;
+  margin-top: 2.5rem;
+  display: inline;
 }
 
 .loginHeading {
@@ -60,8 +71,10 @@ body {
   display: flex;
   width: 100%;
   height: 100%;
+  background-color: white;
   /* background-image: url(images/backgroundImage.jpg); */
-  background-size: cover;
+  background-size: 100%;
+  background-repeat: no-repeat;
   background-position: center;
   justify-content: center;
   align-items: center;
