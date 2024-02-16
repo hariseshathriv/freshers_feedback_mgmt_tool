@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
 import logo from "../images/logo2.jpeg";
+import sideImage from "../images/loginSideRight.avif";
+
 function Login() {
   const [formData, setFormData] = useState({
     email: "",
@@ -44,7 +46,7 @@ function Login() {
   return (
     <div className="loginBox">
       <img className="jmanLogo" src={logo} alt="jmanImage" />
-      <h1 className="text-3xl navHeading loginHeading mb-10">
+      <h1 className="text-3xl navHeading mb-10">
         Freshers Feedback Management Tool
       </h1>
       <div className="login">
@@ -91,6 +93,7 @@ function Login() {
           </a>
         </form>
       </div>
+      <img className="sideImage" src={sideImage} alt="SideImage" />
       <a
         href="/registration"
         className="newUserRegister mt-8 text-xl underline"
