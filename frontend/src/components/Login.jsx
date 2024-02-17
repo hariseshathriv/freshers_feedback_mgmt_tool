@@ -36,7 +36,7 @@ function Login() {
       setApiResponse(data.message);
       setUserContext(data); //update the user data here
       alert("Login is successful");
-      navigate("/mentorDashboard");
+      navigate("/dashboard");
     } catch (error) {
       console.error("Error:", error);
       setApiResponse("An error occurred. Please try again.");
