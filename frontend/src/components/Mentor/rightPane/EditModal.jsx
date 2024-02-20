@@ -22,21 +22,6 @@ const EditModal = ({handleModal,modalPayload,handleSave}) =>{
               X
             </button>
           </div>
-          <input
-            className="w-1/4 px-2 text-black"
-            defaultValue={
-              (weekFeedBack && weekFeedBack.weekNo) || ""
-            }
-            onChange={(e) => {
-              setFeedBack((prev) => {
-                return {...prev, weekNo: e.target.value };
-              });
-            }}
-            min={1}
-            max={20}
-            type="number"
-            placeholder="Enter week Number"
-          />
           <textarea
             className="w-full h-3/4 resize-y outline-none rounded-lg text-black text-xl px-3 py-3"
             defaultValue={
@@ -47,6 +32,7 @@ const EditModal = ({handleModal,modalPayload,handleSave}) =>{
                 return { ...prev, comment: e.target.value };
               });
             }}
+            placeholder='Write your comments ...'
           ></textarea>
           <div className="flex justify-end">
             <button className="bg-green-600 text-xl font-bold px-2 py-1 rounded hover:text-green-600 hover:bg-white" onClick={validation}

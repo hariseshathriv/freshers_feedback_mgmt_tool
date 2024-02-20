@@ -10,11 +10,12 @@ import WeeklyComments from "./components/Admin/WeeklyComments";
 import MentorRegistration from "./components/MentorRegistration";
 import Layout from "./Layout";
 import MentorDashboard from "./components/Mentor/Dashboard";
-import Feedback from "./components/Feedback";
 
 import UserContextProvider from "./context/UserContextProvider";
 import LeftNavbar from "./components/LeftNavbar";
-import AddMentees from "./components/AddMentees";
+
+import MentorProfile from "./components/Mentor/MentorProfile";
+import Feedback from "./components/Feedback";
 
 function App() {
   return (
@@ -28,8 +29,8 @@ function App() {
             <Route path="/" element={<Login />} />
             <Route path="/registration" element={<MentorRegistration />} />
             <Route path="/dashboard" element={<MentorDashboard />} />
+            <Route path="/Profile" element={<MentorProfile />} />
             <Route path="/feedback" element={<Feedback />} />
-            <Route path="/addMentees" element={<AddMentees />} />
             <Route path="/adminDashboard" element={<Layout />}>
               <Route path="/adminDashboard/:key1" element={<MenteeView />} />
               <Route
