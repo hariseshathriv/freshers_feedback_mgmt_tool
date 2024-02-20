@@ -50,7 +50,7 @@ function Login() {
         Freshers Feedback Management Tool
       </h1>
       <div className="login">
-        <h2 className="text-2xl loginHeading">LOGIN</h2>
+        <h2 className="text-2xl loginHeading">Login</h2>
         <form className="loginForm">
           <div className="mb-5  loginDiv">
             <label htmlFor="email" className="text-xl loginLabel">

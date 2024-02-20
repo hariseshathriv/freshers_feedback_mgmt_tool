@@ -46,7 +46,6 @@ body {
   color: #19105b;
   overflow: hidden;
   white-space: nowrap;
-  animation: revealText 6s ease-out infinite;
 }
 
 

@@ -9,39 +9,46 @@ import MenteeView from "./components/Admin/MenteeView";
 import WeeklyComments from "./components/Admin/WeeklyComments";
 import MentorRegistration from "./components/MentorRegistration";
 import Layout from "./Layout";
-import MentorDashboard from "./components/Mentor/Dashboard";
+import MentorDashboard from "./components/Mentor/Dashboard/Dashboard";
+import Menu from "./components/Menu";
 
+import MentorProfile from "./components/Mentor/Profile/MentorProfile";
+import Feedback from "./components/Mentor/Feedback/Feedback";
+
+//context
 import UserContextProvider from "./context/UserContextProvider";
-import LeftNavbar from "./components/LeftNavbar";
-
-import MentorProfile from "./components/Mentor/MentorProfile";
-import Feedback from "./components/Feedback";
+import CommentContextProvider from "./context/commentContextProvider";
 
 function App() {
   return (
     <UserContextProvider>
-      <BrowserRouter>
-        <div className="app">
-        <LeftNavbar />
-        <div className="flex-col w-full">
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/registration" element={<MentorRegistration />} />
-            <Route path="/dashboard" element={<MentorDashboard />} />
-            <Route path="/Profile" element={<MentorProfile />} />
-            <Route path="/feedback" element={<Feedback />} />
-            <Route path="/adminDashboard" element={<Layout />}>
-              <Route path="/adminDashboard/:key1" element={<MenteeView />} />
-              <Route
-                path="/adminDashboard/:key1/:key2"
-                element={<WeeklyComments />}
-              />
-            </Route>
-          </Routes>
-        </div>
-        </div>
-      </BrowserRouter>
+      <CommentContextProvider>
+        <BrowserRouter>
+          <div className="app">
+            <Menu />
+            <div className="flex-col w-full">
+              <Navbar />
+              <Routes>
+                <Route path="/" element={<Login />} />
+                <Route path="/registration" element={<MentorRegistration />} />
+                <Route path="/dashboard" element={<MentorDashboard />} />
+                <Route path="/Profile" element={<MentorProfile />} />
+                <Route path="/feedback" element={<Feedback />} />
+                <Route path="/adminDashboard" element={<Layout />}>
+                  <Route
+                    path="/adminDashboard/:key1"
+                    element={<MenteeView />}
+                  />
+                  <Route
+                    path="/adminDashboard/:key1/:key2"
+                    element={<WeeklyComments />}
+                  />
+                </Route>
+              </Routes>
+            </div>
+          </div>
+        </BrowserRouter>
+      </CommentContextProvider>
     </UserContextProvider>
   );
 }

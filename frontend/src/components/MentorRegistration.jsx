@@ -54,7 +54,7 @@ function MentorRegistration() {
       </h1>
 
       <div className="mentor">
-        <h2 className="text-3xl mentorHeading">MENTOR REGISTRATION</h2>
+        <h2 className="text-3xl mentorHeading">Mentor Registration</h2>
         <form class="mentorForm">
           <div class="mb-2  mentorDiv">
             <label for="email" className="text-xl mentorLabel">

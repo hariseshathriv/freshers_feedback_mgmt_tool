@@ -8,7 +8,6 @@ function AddMentees() {
     const [formData, setFormData] = useState({
         email: "",
         name: "",
-        mentor_id: user.data.id
       });
 
     const handleInputChange = (e) => {

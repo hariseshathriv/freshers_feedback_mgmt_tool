@@ -1,9 +1,13 @@
-import feedBackData from '../feedbackData.js'
+// import feedBackData from '../feedbackData.js'
 import Feedback from './Feedback.jsx'
 import EditModal from './EditModal.jsx'
-import {useState} from 'react'
+import commentContext from '../../../../context/commentContext.js'
+import {useState, useContext} from 'react'
+
 const FeedBackMenu = ({mentee,menteeInfo}) =>{
-  const [feedBackList,setFeedBackList] = useState(feedBackData);
+  const {comment, setComment} = useContext(commentContext);
+  console.log(comment)
+  const [feedBackList,setFeedBackList] = useState(comment);
   const [modal,modalToogle] = useState(false);
   const [modalPayload,setModalPayload] = useState();
 

@@ -1,9 +1,9 @@
 import {useState, useContext} from 'react'
 import Mentees from "./LeftPane/Mentees";
 import FeedBackMenu from './rightPane/FeedBackMenu';
-import UserContext from '../../context/UserContext';
+import UserContext from '../../../context/UserContext';
 
-const Mentor = () => {
+const Feedback = () => {
     const {user} = useContext(UserContext);
     const [mentees,setMentees] = useState(user.data.mentees);
     const [mentee, setMentee] = useState(null);
@@ -19,4 +19,4 @@ const Mentor = () => {
     );
 };
 
-export default Mentor;
+export default Feedback;

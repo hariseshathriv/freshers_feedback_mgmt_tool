@@ -5,7 +5,7 @@ import UserContext from '../context/UserContext'
 import { useNavigate } from "react-router-dom";
 
 
-function LeftNavbar() {
+function Menu() {
     const {user} = useContext(UserContext);
     const navigate = useNavigate();
     if(!user) return <div></div>
@@ -78,4 +78,4 @@ function LeftNavbar() {
   )
 }
 
-export default LeftNavbar
+export default Menu;

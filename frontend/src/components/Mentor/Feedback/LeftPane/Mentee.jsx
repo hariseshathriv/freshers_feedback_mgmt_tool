@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import commentContext from "../../../../context/commentContext";
+
 const Mentee = ({id,name,setMentee,mentee}) =>{
+    const {comment,setCommentContext} = useContext(commentContext);
     const style = `w-3/4 border border-solid border-black rounded-md text-2xl hover:bg-purple-800 hover:text-white ${
       (mentee === id)? "bg-purple-800 text-white" : "bg-white"
     }`;
@@ -19,9 +23,9 @@ const Mentee = ({id,name,setMentee,mentee}) =>{
                 "Content-Type": "application/json",
               },
             });
-      
             const data = await response.json();
             console.log(data);
+            setCommentContext(data);
           } catch (error) {
             console.error("Error:", error);
           }
