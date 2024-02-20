@@ -24,7 +24,6 @@ const Mentee = ({id,name,setMentee,mentee}) =>{
               },
             });
             const data = await response.json();
-            console.log(data);
             setCommentContext(data);
           } catch (error) {
             console.error("Error:", error);
