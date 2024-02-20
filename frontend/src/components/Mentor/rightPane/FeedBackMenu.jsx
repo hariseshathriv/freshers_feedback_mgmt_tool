@@ -5,17 +5,45 @@ import {useState} from 'react'
 const FeedBackMenu = ({mentee,menteeInfo}) =>{
   const [feedBackList,setFeedBackList] = useState(feedBackData);
   const [modal,modalToogle] = useState(false);
-  const [modalPayload,setModalPayload] = useState()
-  const handleSave = (data) =>{
-    // console.log(data);
+  const [modalPayload,setModalPayload] = useState();
+
+  const handleSave = async (data) =>{
+    const formData = {
+      mentee_id : menteeInfo[0].id,
+      comment : data.comment
+    };
+
+    try {
+      const apiUrl = "http://localhost:3001/api/users/comments/";
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const responseData = await response.json();
+      console.log(responseData);
+      if(responseData.status === 400){
+        alert(responseData.data);
+      }
+      else{
+        setFeedBackList(responseData.data);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+
     let updated = false;
-    const updateList = feedBackList.map(({id,weekNo,comment})=>{
+    const updateList = feedBackList.map(({id,week,comment})=>{
+      const weekNo = week;
         if(weekNo == data.weekNo){
-          updated = true
+          updated=true;
           return {id,weekNo,comment:data.comment}
         }
         return {id,weekNo,comment}
-    })
+    });
     if(!updated){
       updateList.push({...data,id:updateList[updateList.length-1].id+1});
     }

@@ -2,7 +2,7 @@ import {useState} from 'react';
 const EditModal = ({handleModal,modalPayload,handleSave}) =>{
     const [weekFeedBack,setFeedBack] = useState(modalPayload)
     const validation = () =>{
-      if (!(weekFeedBack.weekNo == "" || weekFeedBack.comment=="")) {
+      if (weekFeedBack.comment !== "") {
         handleSave(weekFeedBack);
         handleModal();
       }
@@ -33,6 +33,7 @@ const EditModal = ({handleModal,modalPayload,handleSave}) =>{
               });
             }}
             placeholder='Write your comments ...'
+            required={true}
           ></textarea>
           <div className="flex justify-end">
             <button className="bg-green-600 text-xl font-bold px-2 py-1 rounded hover:text-green-600 hover:bg-white" onClick={validation}

@@ -1,4 +1,4 @@
-const Feedback = ({id,weekNo,comment,setFeedBackList,handleModal}) =>{
+const Feedback = ({id,week,comment,setFeedBackList,handleModal}) =>{
   //Delete Feedback
   const handleDelete = (id) =>{
     console.log("delete")
@@ -11,7 +11,7 @@ const Feedback = ({id,weekNo,comment,setFeedBackList,handleModal}) =>{
     return (
       <div className= " bg-gray-200 rounded-md px-3 mt-6 ml-3 mr-3 py-3 grid grid-cols-12 gap-3">
         <div className="col-span-1 text-l font-bold rounded-md px-3 py-2">
-          Week {weekNo}
+          Week {week}
         </div>
         <div className="col-span-9 bg-white rounded-md px-3 py-2">
           {comment}
