@@ -21,7 +21,7 @@ const SideBar = () => {
                 <div className='flex items-center'><LuNetwork /></div>
                 <div>FeedBack</div>
             </NavLink>
-            <NavLink to={"/profile"} className={({isActive})=>`flex justify-evenly p-1 ${isActive ? "text-purple-800 bg-hex-grey" : "text-gray-700"}`}>
+            <NavLink to={"/admin/profile"} className={({isActive})=>`flex justify-evenly p-1 ${isActive ? "text-purple-800 bg-hex-grey" : "text-gray-700"}`}>
                 <div className='flex items-center'><RiAccountCircleLine /></div>
                 <div>My Account</div>
             </NavLink>

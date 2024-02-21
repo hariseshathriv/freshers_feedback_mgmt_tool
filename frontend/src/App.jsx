@@ -54,6 +54,9 @@ function App() {
                     path="/admin/feedback"
                     element={<AdminMentee />}
                   />
+                  <Route 
+                    path="/admin/profile" element={<MentorProfile />}
+                  />
                 </Route>
               </Routes>
             </div>

@@ -6,8 +6,8 @@ import TopBar from './TopBar';
 const AdminDashBoard = ({title}) => {
   const [dateRanges, setDateRanges] = useState([]);
   const [showMenteeBox, setShowMenteeBox] = useState(false);
-  const {user} = useContext(UserContext)
-  // const user = "nitesh"
+  // const {user} = useContext(UserContext)
+  const user = "nitesh"
 
   const compareDates = (date)=>{
     const today = new Date();

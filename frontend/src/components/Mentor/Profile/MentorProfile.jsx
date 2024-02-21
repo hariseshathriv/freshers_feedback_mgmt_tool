@@ -3,6 +3,13 @@ import UserContext from '../../../context/UserContext';
 
 const MentorProfile = () => {
     const {user} = useContext(UserContext);
+    // const user = {
+    //   data:{
+    //     mentor_name:"nitesh",
+    //     email:"jaja",
+    //     designation:"jkdsjkj"
+    //   }
+    // }
     console.log(user)
     return (
       <div>
