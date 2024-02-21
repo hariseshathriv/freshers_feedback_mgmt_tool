@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 
 import Navbar from "./components/Navbar";
@@ -17,9 +17,21 @@ import Feedback from "./components/Mentor/Feedback/Feedback";
 
 //context
 import UserContextProvider from "./context/UserContextProvider";
-import CommentContextProvider from "./context/commentContextProvider";
+import CommentContextProvider from "./context/CommentContextProvider";
+import AdminDashBoard from "./components/Admin1/AdminDashBoard";
+import AdminMentee from "./components/Admin1/AdminMentee";
+
+
 
 function App() {
+  const AdminComp = () =>{
+    const navigate = useNavigate();
+    const {pathname} = useLocation();
+    useEffect(()=>{
+      if(pathname ==="/admin" || pathname === "/admin/")
+        navigate('/admin/dashboard',{replace:true})
+    })
+  }
   return (
     <UserContextProvider>
       <CommentContextProvider>
@@ -34,14 +46,13 @@ function App() {
                 <Route path="/dashboard" element={<MentorDashboard />} />
                 <Route path="/Profile" element={<MentorProfile />} />
                 <Route path="/feedback" element={<Feedback />} />
-                <Route path="/adminDashboard" element={<Layout />}>
+                <Route path="/admin" element={<><Layout /><AdminComp/></>}>
                   <Route
-                    path="/adminDashboard/:key1"
-                    element={<MenteeView />}
+                    path="/admin/dashBoard" element={<AdminDashBoard />}
                   />
                   <Route
-                    path="/adminDashboard/:key1/:key2"
-                    element={<WeeklyComments />}
+                    path="/admin/feedback"
+                    element={<AdminMentee />}
                   />
                 </Route>
               </Routes>

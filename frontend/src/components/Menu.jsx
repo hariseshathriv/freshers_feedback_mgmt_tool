@@ -36,9 +36,9 @@ function Menu() {
     <>
         <nav className='navbar'>
             <div className='navBox'>
-                <a href="/">
-                    <img src={logo} alt="logo" className='w-36'/>
-                </a>
+                    <a href="/">
+                        <img src={logo} alt="logo" className='w-36'/>
+                    </a>
 
                 <ul className='nav-items'>
                     <li className='nav-item'>
