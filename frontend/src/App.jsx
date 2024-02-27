@@ -17,7 +17,7 @@ import Feedback from "./components/Mentor/Feedback/Feedback";
 
 //context
 import UserContextProvider from "./context/UserContextProvider";
-import CommentContextProvider from "./context/commentContextProvider";
+import CommentContextProvider from "./context/CommentContextProvider";
 
 function App() {
   return (

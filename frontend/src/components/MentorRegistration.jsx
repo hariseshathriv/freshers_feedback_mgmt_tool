@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import logo from "../images/logo2.jpeg";
+import logo2 from "../images/jmanLogo3.png";
 import sideImage from "../images/registerSideRight.avif";
+import registerationImageButton from "../images/registrationImageButton.png";
+import TimezoneClock from "./TimezoneClock";
 
 function MentorRegistration() {
   const [formData, setFormData] = useState({
@@ -48,13 +51,13 @@ function MentorRegistration() {
 
   return (
     <div className="mentorBox">
-      <img className="jmanLogo" src={logo} alt="jmanImage" />
+      <img className="jmanLogo" src={logo2} alt="jmanImage" />
       <h1 className="text-3xl navHeading regHeading mb-10">
         Freshers Feedback Management Tool
       </h1>
 
       <div className="mentor">
-        <h2 className="text-3xl mentorHeading">Mentor Registration</h2>
+        <h2 className="text-3xl mentorHeading">MENTOR REGISTRATION</h2>
         <form class="mentorForm">
           <div class="mb-2  mentorDiv">
             <label for="email" className="text-xl mentorLabel">
@@ -157,11 +160,21 @@ function MentorRegistration() {
             className="text-2xl mentorBtn"
             onClick={handleSubmit}
           >
-            Submit
+            Register
+            <img
+              className="loginImageButton"
+              src={registerationImageButton}
+              alt=""
+            />
           </button>
         </form>
       </div>
       <img className="sideImage" src={sideImage} alt="SideImage" />
+      <ul className="listLogin text-3xl">
+        <TimezoneClock timezone="Asia/Kolkata" label="Chennai" />
+        <TimezoneClock timezone="Europe/London" label="London" />
+        <TimezoneClock timezone="America/New_York" label="New York" />
+      </ul>
     </div>
   );
 }
