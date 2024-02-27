@@ -85,136 +85,6 @@ body {
 }
 
 /* -------------------------- LOGIN CSS -------------------------- */
-/* 
-.jmanLogo {
-  position: absolute;
-  margin-right: 1100px;
-  margin-bottom: 500px;
-}
-
-.sideImage {
-  position: absolute;
-  width: 24rem;
-  height: 24rem;
-  margin-left: 55rem;
-  margin-top: 2.5rem;
-  display: inline;
-}
-
-.loginHeading {
-  padding-top: 4px;
-  color: #4a4a4a;
-}
-
-.loginBox {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  background-image: url(images/backgroundImage.jpg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: 0px 0;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.login {
-  display: flex;
-  width: 400px;
-  height: 400px;
-  background-color: #f2f1f6;
-  border-radius: 7px;
-  flex-direction: column;
-  align-items: center;
-  padding: 5px;
-  box-shadow: 0 2px 4px 0 #f2f1f6, 0 3px 10px 0 #f2f1f6;
-}
-
-.newUserRegister {
-  color: #19105b;
-  border-radius: 5px;
-  padding: 5px;
-}
-
-.loginForm {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.loginDiv {
-  width: 200px;
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-.loginLabel {
-  border-radius: 7px;
-  width: fit-content;
-  margin-bottom: 5px;
-  color: #19105b;
-}
-
-.loginInput {
-  background-color: #f2f1f6;
-  margin-top: 5px;
-  border-bottom: 2px solid #ff6196;
-}
-
-.loginBtn {
-  background-color: #18105b;
-  color: white;
-  margin-top: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 150px;
-  height: 40px;
-  padding: 5px;
-  border-radius: 5px;
-  outline: 0;
-}
-
-.loginBtn:hover {
-  background-color: #ff095c;
-}
-
-
-.mentorHeading {
-  color: #4a4a4a;
-}
-
-.mentorBox {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-image: url(images/backgroundImage.jpg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: 0px 0;
-}
-
-.mentor {
-  display: flex;
-  width: 600px;
-  height: 530px;
-  background-color: #f2f1f6;
-  border-radius: 7px;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 7px;
-  padding-bottom: 6px;
-  margin-right: 8rem;
-  box-shadow: 0 2px 4px 0 #f2f1f6, 0 3px 10px 0 #f2f1f6;
-} */
 
 .jmanLogo {
   position: absolute;
@@ -248,18 +118,6 @@ body {
 @font-face {
   font-family: "cursive";
   src: url(fonts/cursive/CedarvilleCursive-Regular.ttf);
-}
-
-.listLogin {
-  color: #ff095c;
-  line-height: 2.5;
-  position: absolute;
-
-  width: 24rem;
-  height: 24rem;
-  margin-right: 65rem;
-  margin-top: 20.5rem;
-  display: inline;
 }
 
 .loginHeading {
@@ -416,6 +274,12 @@ body {
   display: flex;
   justify-content: space-between;
 }
+.mentorDivGender {
+  width: 225px;
+  padding-left: 15px;
+  display: flex;
+  justify-content: space-between;
+}
 
 .mentorLabel {
   color: #19105b;
@@ -427,7 +291,20 @@ body {
   background-color: #f2f1f6;
   outline: 0;
 }
-
+.mentorInputPassword {
+  border-bottom: 2px solid #ff6196;
+  width: 180px;
+  background-color: #f2f1f6;
+  outline: 0;
+}
+.show-password-icon {
+  border-bottom: 2px solid #ff6196;
+  background-color: #f2f1f6;
+}
+.show-password-icon:hover {
+  background-color: #ff095c;
+  cursor: pointer;
+}
 .mentorBtn {
   background-color: #19105b;
   color: white;
@@ -445,51 +322,3 @@ body {
 .mentorBtn:hover {
   background-color: #ff095c;
 }
-
-/* .regHeading {
-  margin-right: 8rem;
-}
-
-.mentorForm {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-.mentorDiv {
-  width: 75%;
-  margin: 10px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.mentorLabel {
-  color: #19105b;
-}
-
-.mentorInput {
-  border-bottom: 2px solid #ff6196;
-  width: 200px;
-  background-color: #f2f1f6;
-  outline: 0;
-}
-
-.mentorBtn {
-  background-color: #19105b;
-  color: white;
-  margin-top: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 150px;
-  height: 40px;
-  padding: 5px;
-  border-radius: 5px;
-}
-
-.mentorBtn:hover {
-  background-color: #ff095c;
-} */
