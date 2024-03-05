@@ -2,14 +2,14 @@ import React,{useState} from 'react'
 
 const AddMenteeDashBoard = ({onClose}) => {
 
-    const [internId , setInternId] = useState("");
+    const [internEmail , setInternEmail] = useState("");
     const [internName , setInternName] = useState("");
     const [mentorName , setMentorName] = useState("");
 
     const handleSubmit = (e)=>{
         e.preventDefault();
         const data = {
-            intern_Id : internId,
+            intern_email : internEmail,
             intern_name : internName,
             mentor_name :mentorName
         }
@@ -26,14 +26,14 @@ const AddMenteeDashBoard = ({onClose}) => {
             >
                 <form className='m-3 flex flex-col gap-5 items-center' onSubmit={handleSubmit}>
                     <div className='flex justify-start'>
-                        <label htmlFor="intern_id" className='w-60 text-xl text-hex-blue'>Intern Id</label>
+                        <label htmlFor="intern_id" className='w-60 text-xl text-hex-blue'>Intern Email</label>
                         <input 
                             className='mx-4 bg-hex-lightgrey px-2 outline-none rounded-md'
-                            type="text" 
-                            id='intern_id'
-                            value={internId}
+                            type="email" 
+                            id='intern_email'
+                            value={internEmail}
                             placeholder='Intern Id'
-                            onChange={(e)=>setInternId(e.target.value)}
+                            onChange={(e)=>setInternEmail(e.target.value)}
                             required/>
                     </div>
                     <div className='flex justify-start'>
@@ -54,8 +54,9 @@ const AddMenteeDashBoard = ({onClose}) => {
                             type="text" 
                             id='mentor_name'
                             value={mentorName}
-                            placeholder='Optional Mentor Name'
+                            placeholder='Mentor Name'
                             onChange={(e)=>setMentorName(e.target.value)}
+                            required
                         />
                     </div>
                     <button type='submit' className='bg-hex-blue text-hex-lightgrey p-2 rounded-md'>Add Mentee</button>
