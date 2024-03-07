@@ -35,16 +35,28 @@ function Login() {
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
-      setApiResponse(data.message);
+      const res = await response.json();
+      setApiResponse(res.message);
+      const {data} = res
       // setUserContext(data); //update the user data here
-      if(data.data.role === "ADMIN") {
-        login(data.data.name);
-        console.log(data);
+      if(data.role === "ADMIN") {
+        const user = {
+          name:data.name,
+          id:data.id,
+          desg:data.designation,
+          email:data.email
+        }
+        login(user);
         navigate("/admin");
       }
-      else if(data.data.role === "MENTOR"){
-        login(data.data.name);
+      else if(data.role === "MENTOR"){
+        const user = {
+          name:data.name,
+          id:data.id,
+          desg:data.designation,
+          email:data.email
+        }
+        login(user);
         console.log("Hey i am here",data);
         navigate("/mentor");
       }

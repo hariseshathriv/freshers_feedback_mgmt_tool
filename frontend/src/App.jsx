@@ -52,7 +52,7 @@ function App() {
   }
 
 
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState({});
   const [loginStatus, setLoginStatus] = useState(false);
   const login = (user) => {
     setLoginStatus(true);

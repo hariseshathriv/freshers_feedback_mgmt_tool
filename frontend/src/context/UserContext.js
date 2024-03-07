@@ -1,7 +1,12 @@
 import React, { useContext , createContext } from 'react';
 
 export const UserContext = createContext({
-    user:"",
+    user:{
+        name:"",
+        id:"",
+        desg:"",
+        email:""
+    },
     loginStatus:false,
     login : ()=>{},
     logout : ()=>{}

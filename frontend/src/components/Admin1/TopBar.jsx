@@ -21,7 +21,7 @@ const TopBar = ({title}) => {
         <div className='px-4'>
             <div className='flex text-xl items-center p-4'>
               <div className='flex items-center pr-8 relative'>
-                <span className='px-4 text-hex-lightgrey'>{user}</span> 
+                <span className='px-4 text-hex-lightgrey'>{user.name}</span> 
                 <RiArrowDropDownLine 
                   color='#f2f1f6'
                   onClick={()=>setShowLogOut((prev)=>!prev)}/> 

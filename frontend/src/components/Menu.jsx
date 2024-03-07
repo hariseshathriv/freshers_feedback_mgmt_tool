@@ -3,17 +3,18 @@ import logo from '../images/logo2.jpeg'
 import {Link, NavLink} from 'react-router-dom'
 import UserContext from '../context/UserContext'
 import { useNavigate } from "react-router-dom";
+import useUserStatus from '../context/UserContext';
 
 
 function Menu() {
-    const {user} = useContext(UserContext);
+    const {user} = useUserStatus();
     const navigate = useNavigate();
     if(!user) return <div></div>
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-          const apiUrl = "http://localhost:3001/api/users/get-mentees/"+user.data.id;
+          const apiUrl = "http://localhost:3001/api/users/get-mentees/"+user.id;
           const response = await fetch(apiUrl, {
             method: "GET",
             headers: {
