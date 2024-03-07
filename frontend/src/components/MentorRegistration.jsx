@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import logo from "../images/logo2.jpeg";
+import logo2 from "../images/jmanLogo3.png";
 import sideImage from "../images/registerSideRight.avif";
+import registerationImageButton from "../images/registrationImageButton.png";
 
 function MentorRegistration() {
   const [formData, setFormData] = useState({
@@ -45,16 +47,34 @@ function MentorRegistration() {
       setApiResponse("An error occurred. Please try again.");
     }
   };
+  const [typePassword, setTypePassword] = useState("password");
+  const [typeConfirmPassword, setConfirmTypePassword] = useState("password");
+  const [password, setPassword] = useState("");
+  const [confirmpassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(true);
+  const [showConfirmPassword, setConfirmShowPassword] = useState(true);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
+  const toggleConfirmPasswordVisibility = () => {
+    setConfirmShowPassword((prevShowPassword) => !prevShowPassword);
+  };
+
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+    handleInputChange();
+  };
 
   return (
     <div className="mentorBox">
-      <img className="jmanLogo" src={logo} alt="jmanImage" />
+      <img className="jmanLogo" src={logo2} alt="jmanImage" />
       <h1 className="text-3xl navHeading regHeading mb-10">
         Freshers Feedback Management Tool
       </h1>
 
       <div className="mentor">
-        <h2 className="text-3xl mentorHeading">Mentor Registration</h2>
+        <h2 className="text-3xl mentorHeading">MENTOR REGISTRATION</h2>
         <form class="mentorForm">
           <div class="mb-2  mentorDiv">
             <label for="email" className="text-xl mentorLabel">
@@ -82,7 +102,7 @@ function MentorRegistration() {
             />
           </div>
           <div class="mb-2  mentorDiv">
-            <label for="name" className="text-xl mentorLabel">
+            <label for="designation" className="text-xl mentorLabel">
               Designation
             </label>
             <input
@@ -93,17 +113,21 @@ function MentorRegistration() {
               onChange={handleInputChange}
             />
           </div>
-          <div class="mb-2  mentorDiv">
-            <label for="gender" className="text-xl mentorLabel">
+          <div className="mb-2  mentorDiv">
+            <label for="gender" className="  text-xl mentorLabel">
               Gender
             </label>
-            <input
-              name="gender"
-              type="gender"
-              className="mentorInput"
-              required
-              onChange={handleInputChange}
-            />
+            <span className="mentorDivGender">
+              <label>
+                <input type="radio" name="gender" value="Male" /> Male
+              </label>
+              <label>
+                <input type="radio" name="gender" value="Female" /> Female
+              </label>
+              <label>
+                <input type="radio" name="gender" value="Other" /> Other
+              </label>
+            </span>
           </div>
           <div class="mb-2  mentorDiv">
             <label for="name" className="text-xl mentorLabel">
@@ -121,24 +145,53 @@ function MentorRegistration() {
             <label for="password" className="text-xl mentorLabel">
               Password
             </label>
-            <input
-              name="password"
-              type="password"
-              className="mentorInput"
-              required
-              onChange={handleInputChange}
-            />
+            <span>
+              <input
+                name="password"
+                type={typePassword}
+                className="mentorInputPassword"
+                value={password}
+                required
+                onChange={handlePassword}
+              />
+              <span
+                class="show-password-icon"
+                onClick={() => {
+                  if (typePassword === "password")
+                    setTypePassword((prev) => "text");
+                  else setTypePassword((prev) => "password");
+                  togglePasswordVisibility();
+                }}
+              >
+                {showPassword ? "👀" : "👁️"}
+              </span>
+            </span>
           </div>
           <div class="mb-2  mentorDiv">
             <label for="password" className="text-xl mentorLabel">
               Confirm Password
             </label>
-            <input
-              name="confirm_password"
-              type="password"
-              className="mentorInput"
-              required
-            />
+            <span>
+              <input
+                name="confirm_password"
+                type={typeConfirmPassword}
+                className="mentorInputPassword"
+                value={confirmpassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              />
+              <span
+                class="show-password-icon"
+                onClick={() => {
+                  if (typeConfirmPassword === "password")
+                    setConfirmTypePassword((prev) => "text");
+                  else setConfirmTypePassword((prev) => "password");
+                  toggleConfirmPasswordVisibility();
+                }}
+              >
+                {showConfirmPassword ? "👀" : "👁️"}
+              </span>
+            </span>
           </div>
           <div class="mb-2  mentorDiv">
             <label for="name" className="text-xl mentorLabel">
@@ -157,7 +210,12 @@ function MentorRegistration() {
             className="text-2xl mentorBtn"
             onClick={handleSubmit}
           >
-            Submit
+            Register
+            <img
+              className="loginImageButton"
+              src={registerationImageButton}
+              alt=""
+            />
           </button>
         </form>
       </div>

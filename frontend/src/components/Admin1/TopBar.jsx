@@ -2,12 +2,17 @@ import React,{useState, useContext} from 'react'
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { IoIosLogOut } from "react-icons/io";
 import { MdNotificationsNone } from "react-icons/md";
-import UserContext from '../../context/UserContext';
+import useUserStatus from "../../context/UserContext";
+import { useNavigate } from 'react-router-dom';
 
 const TopBar = ({title}) => {
-    // const {user} = useContext(UserContext)
+    const {user , logout} = useUserStatus();
     const [showLogOut, setShowLogOut] = useState(false)
-    const user = "nitesh"
+    const navigate = useNavigate();
+    const handleLogout = ()=>{
+      logout();
+      navigate("/");
+    }
   return (
     <div className='flex justify-between bg-hex-blue items-center'>
         <div className='p-2 text-hex-lightgrey text-2xl pl-4'>
@@ -20,10 +25,16 @@ const TopBar = ({title}) => {
                 <RiArrowDropDownLine 
                   color='#f2f1f6'
                   onClick={()=>setShowLogOut((prev)=>!prev)}/> 
-                <div className={`${showLogOut?"opacity-100":""} opacity-0 absolute top-8 left-5 flex items-center bg-hex-blue p-1 text-hex-lightgrey rounded-md drop-shadow-lg`}>
-                  <span className='px-1'>Log Out</span>
-                  <IoIosLogOut />
-                </div>
+                {
+                  showLogOut && 
+                  <div 
+                    className={` opacity-100 absolute top-8 right-0 flex items-center bg-hex-blue p-1 text-hex-lightgrey rounded-md drop-shadow-lg`}
+                    onClick={handleLogout}
+                  >
+                    <span className='px-1'>Log Out</span>
+                    <IoIosLogOut />
+                  </div>
+                }
               </div>
               <MdNotificationsNone color='#f2f1f6' />
             </div>

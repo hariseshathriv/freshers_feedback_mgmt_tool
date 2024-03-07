@@ -5,7 +5,7 @@ import WeeklyComments from "./components/Admin/WeeklyComments";
 import SideBar from "./components/Admin1/SideBar"
 import { Outlet } from "react-router-dom";
 
-const Layout = ()=>{
+const LayoutAdmin = ()=>{
     const [path, setPath] = useState("");
     return (
         <div className="flex">
@@ -16,4 +16,4 @@ const Layout = ()=>{
     )
 }
 
-export default Layout;
+export default LayoutAdmin;

@@ -25,7 +25,7 @@ function Menu() {
 
           user.data.mentees = data.mentees;
 
-          navigate("/feedback");
+          navigate("/mentor/feedback");
 
         } catch (error) {
           console.error("Error:", error);
@@ -43,7 +43,7 @@ function Menu() {
                 <ul className='nav-items'>
                     <li className='nav-item'>
                         <NavLink
-                            to="/dashboard"
+                            to="/mentor/dashboard"
                             className={({isActive}) =>
                             `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-purple-800" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-purple-800 lg:p-0`
                             }
@@ -53,7 +53,7 @@ function Menu() {
                     </li>
                     <li className='nav-item'>
                         <NavLink
-                            to="/feedback"
+                            to="/mentor/feedback"
                             className={({isActive}) =>
                             `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-purple-800" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-purple-800 lg:p-0`
                             }
@@ -63,7 +63,7 @@ function Menu() {
                     </li>
                     <li className='nav-item'>
                         <NavLink
-                            to="/Profile"
+                            to="/mentor/Profile"
                             className={({isActive}) =>
                             `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-purple-800" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-purple-800 lg:p-0`
                             }
