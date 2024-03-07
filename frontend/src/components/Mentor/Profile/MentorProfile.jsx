@@ -1,8 +1,15 @@
 import React, { useState, useContext } from 'react';
-import UserContext from '../../../context/UserContext';
+import useUserStatus from "../../../context/UserContext";
 
 const MentorProfile = () => {
-    const {user} = useContext(UserContext);
+    const {user} = useUserStatus();
+    // const user = {
+    //   data:{
+    //     mentor_name:"nitesh",
+    //     email:"jaja",
+    //     designation:"jkdsjkj"
+    //   }
+    // }
     console.log(user)
     return (
       <div>

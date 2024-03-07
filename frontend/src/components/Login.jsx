@@ -5,6 +5,7 @@ import logo from "../images/logo2.jpeg";
 import logo2 from "../images/jmanLogo3.png";
 import sideImage from "../images/loginSideRight.avif";
 import loginImage from "../images/loginImage.png";
+import useUserStatus from "../context/UserContext";
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -12,11 +13,11 @@ function Login() {
     password: "",
   });
 
+  const {login} = useUserStatus();
+
   const navigate = useNavigate();
 
   const [apiResponse, setApiResponse] = useState(null);
-
-  const { user, setUserContext } = useContext(UserContext);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -34,11 +35,35 @@ function Login() {
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
-      setApiResponse(data.message);
-      setUserContext(data); //update the user data here
-      alert("Login is successful");
-      navigate("/mentorDashboard");
+      const res = await response.json();
+      setApiResponse(res.message);
+      const {data} = res
+      // setUserContext(data); //update the user data here
+      if(data.role === "ADMIN") {
+        const user = {
+          name:data.name,
+          id:data.id,
+          desg:data.designation,
+          email:data.email
+        }
+        login(user);
+        navigate("/admin");
+      }
+      else if(data.role === "MENTOR"){
+        const user = {
+          name:data.name,
+          id:data.id,
+          desg:data.designation,
+          email:data.email
+        }
+        login(user);
+        console.log("Hey i am here",data);
+        navigate("/mentor");
+      }
+      else{
+        alert("Wrong Credentials");
+        navigate("/");
+      }
     } catch (error) {
       console.error("Error:", error);
       setApiResponse("An error occurred. Please try again.");
