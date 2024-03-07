@@ -13,7 +13,7 @@ function Login() {
     password: "",
   });
 
-  const {login} = useUserStatus();
+  const {login , updateMentorDetails , updateMenteeDetails} = useUserStatus();
 
   const navigate = useNavigate();
 
@@ -36,6 +36,7 @@ function Login() {
       });
 
       const res = await response.json();
+      console.log(res);
       setApiResponse(res.message);
       const {data} = res
       // setUserContext(data); //update the user data here
@@ -46,6 +47,7 @@ function Login() {
           desg:data.designation,
           email:data.email
         }
+        updateMentorDetails(data.mentors);
         login(user);
         navigate("/admin");
       }

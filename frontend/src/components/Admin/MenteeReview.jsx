@@ -1,14 +1,31 @@
 import React,{useState, useEffect} from 'react'
 
-const MenteeReview = ({mentee}) => {
+const MenteeReview = ({id}) => {
+  const [mentee, setMentee] = useState({});
   const [Comments, setComments] = useState([])
+  const fetchMenteeData = async()=>{
+    console.log(id);
+    const url = "http://localhost:3001/api/users/get-mentees/"+id;
+    try {
+      const res = await fetch(url,{
+        method : 'GET',
+        headers:{
+          "Content-Type":"application/json",
+        },
+      })
+      const data = await res.json();
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
   useEffect(()=>{
-
+    fetchMenteeData();
   },[])
   return (
     <div>
         <div className='px-20'>
-            <div className='text-[#19105B] text-xl font-bold py-8'>Feedback for {mentee}</div>
+            <div className='text-[#19105B] text-xl font-bold py-8'>Feedback for {id}</div>
             <div className='bg-[#19105B] text-[#F2F1F6] p-2 flex justify-between'>
                 <div className='px-1 text-xl w-1/12'>Week</div>
                 <div className='px-5 text-xl w-10/12 text-center'>Comments</div>

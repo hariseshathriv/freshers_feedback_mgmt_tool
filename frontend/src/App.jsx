@@ -6,22 +6,22 @@ import {
   useNavigate,
   useLocation,
 } from "react-router-dom";
-import { useEffect, useState, useContext } from "react";
+import { useEffect , useState } from "react";
 
 import Login from "./components/Login";
 import MentorRegistration from "./components/MentorRegistration";
 import LayoutAdmin from "./LayoutAdmin";
 import MentorDashboard from "./components/Mentor/Dashboard/Dashboard";
 
-import MentorProfile from "./components/Mentor/Profile/MentorProfile";
+import MentorProfile from "./components/Profile/MentorProfile";
 import Feedback from "./components/Mentor/Feedback/Feedback";
 
 //context
 // import UserContextProvider from "./context/UserContextProvider";
 // import CommentContextProvider from "./context/CommentContextProvider";
 import { UserProvider } from "./context/UserContext";
-import AdminDashBoard from "./components/Admin1/AdminDashBoard";
-import AdminMentee from "./components/Admin1/AdminMentee";
+import AdminDashBoard from "./components/Admin/AdminDashBoard";
+import AdminMentee from "./components/Admin/AdminMentee";
 import LayoutMentor from "./LayoutMentor";
 
 function App() {
@@ -29,7 +29,6 @@ function App() {
     const navigate = useNavigate();
     const { pathname } = useLocation();
     useEffect(() => {
-      107.1;
       if (pathname === "/mentor" || pathname === "/mentor/")
         navigate("/mentor/dashboard", { replace: true });
     });
@@ -54,6 +53,8 @@ function App() {
 
   const [user, setUser] = useState({});
   const [loginStatus, setLoginStatus] = useState(false);
+  const [mentorDetails , setMentorDetails] = useState([]);
+  const [menteeDetails , setMenteeDetails] = useState([]);
   const login = (user) => {
     setLoginStatus(true);
     setUser(user);
@@ -61,10 +62,28 @@ function App() {
   const logout = () => {
     setLoginStatus(false);
     setUser("");
+    updateMentorDetails([]);
+    updateMenteeDetails([]);
   };
+  
+  const updateMentorDetails = (data)=>{
+    data.sort((a,b)=>{
+      const nameA=a.name.toUpperCase();
+      const nameB=b.name.toUpperCase();
+      if(nameA<=nameB){
+          return -1;
+      }
+      return 1;
+    })
+    setMentorDetails(data);
+  }
+
+  const updateMenteeDetails = (data)=>{
+    setMenteeDetails(data);
+  }
 
   return (
-    <UserProvider value={{ user, loginStatus, login, logout }}>
+    <UserProvider value={{ user, loginStatus, login, logout , mentorDetails , menteeDetails , updateMentorDetails , updateMenteeDetails }}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />

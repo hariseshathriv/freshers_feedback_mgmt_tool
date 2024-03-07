@@ -1,7 +1,9 @@
 import React,{useState} from 'react'
+import useUserStatus from '../../context/UserContext';
 
 const AddMenteeDashBoard = ({onClose}) => {
 
+    const {mentorDetails} = useUserStatus();
     const [menteeEmail , setMenteeEmail] = useState("");
     const [menteeName , setMenteeName] = useState("");
     const [mentorName , setMentorName] = useState("");
@@ -9,9 +11,9 @@ const AddMenteeDashBoard = ({onClose}) => {
     const handleSubmit = async (e)=>{
         e.preventDefault();
         const menteeData = {
-            mentee_email : menteeEmail,
-            mentee_name : menteeName,
-            mentor_name :mentorName
+            "mentor_id" : mentorName,
+            "name" : menteeName,
+            "email" : menteeEmail,
         }
         try {
             const response = await fetch("http://localhost:3001/api/users/mentees",{
@@ -68,15 +70,21 @@ const AddMenteeDashBoard = ({onClose}) => {
                     </div>
                     <div className='flex justify-start'>
                         <label htmlFor="mentor_name" className='w-60 text-xl text-hex-blue'>Mentor Name</label>
-                        <input 
+                        <select 
                             className='mx-4 bg-hex-lightgrey px-2 outline-none rounded-md w-48'
-                            type="text" 
                             id='mentor_name'
                             value={mentorName}
                             placeholder='Mentor Name'
                             onChange={(e)=>setMentorName(e.target.value)}
                             required
-                        />
+                        >
+                            <option value="" selected disabled>Select Mentor</option>
+                            {
+                                mentorDetails.map((mentor)=>(
+                                    <option value={mentor.id} key={mentor.id} className='max-w-48 overflow-hidden text-ellipsis'> {mentor.name.length>20?mentor.mentor.slice(0,14)+"...":mentor.name} </option>
+                                ))
+                            }
+                        </select>
                     </div>
                     <button type='submit' className='bg-hex-blue text-hex-lightgrey p-2 rounded-md'>Add Mentee</button>
                 </form>

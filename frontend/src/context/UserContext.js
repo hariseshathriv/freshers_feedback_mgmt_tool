@@ -7,9 +7,13 @@ export const UserContext = createContext({
         desg:"",
         email:""
     },
+    mentorDetails:[],
+    menteeDetails:[],
     loginStatus:false,
     login : ()=>{},
-    logout : ()=>{}
+    logout : ()=>{},
+    updateMentorDetails : ()=>{},
+    updateMenteeDetails : ()=>{}
 });
 
 export default function useUserStatus(){
