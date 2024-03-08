@@ -19,8 +19,6 @@ import Feedback from "./components/Mentor/Feedback/Feedback";
 import MenteesContextProvider from "./context/MenteesContextProvider";
 import UserContextProvider from "./context/UserContextProvider";
 import CommentContextProvider from "./context/CommentContextProvider";
-import AdminDashBoard from "./components/Admin1/AdminDashBoard";
-import AdminMentee from "./components/Admin1/AdminMentee";
 
 function App() {
   return (
