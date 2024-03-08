@@ -1,11 +1,5 @@
 import "./App.css";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  useNavigate,
-  useLocation,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 
 import Navbar from "./components/Navbar";
@@ -29,14 +23,6 @@ import AdminDashBoard from "./components/Admin1/AdminDashBoard";
 import AdminMentee from "./components/Admin1/AdminMentee";
 
 function App() {
-  const AdminComp = () => {
-    const navigate = useNavigate();
-    const { pathname } = useLocation();
-    useEffect(() => {
-      if (pathname === "/admin" || pathname === "/admin/")
-        navigate("/admin/dashboard", { replace: true });
-    });
-  };
   return (
     <UserContextProvider>
       <CommentContextProvider>
@@ -53,23 +39,17 @@ function App() {
                     element={<MentorRegistration />}
                   />
                   <Route path="/dashboard" element={<MentorDashboard />} />
-                  <Route path="/feedback" element={<Feedback />} />
                   <Route path="/Profile" element={<MentorProfile />} />
-                  <Route
-                    path="/admin"
-                    element={
-                      <>
-                        <Layout />
-                        <AdminComp />
-                      </>
-                    }
-                  >
+                  <Route path="/feedback" element={<Feedback />} />
+                  <Route path="/adminDashboard" element={<Layout />}>
                     <Route
-                      path="/admin/dashBoard"
-                      element={<AdminDashBoard />}
+                      path="/adminDashboard/:key1"
+                      element={<MenteeView />}
                     />
-                    <Route path="/admin/feedback" element={<AdminMentee />} />
-                    <Route path="/admin/profile" element={<MentorProfile />} />
+                    <Route
+                      path="/adminDashboard/:key1/:key2"
+                      element={<WeeklyComments />}
+                    />
                   </Route>
                 </Routes>
               </div>
