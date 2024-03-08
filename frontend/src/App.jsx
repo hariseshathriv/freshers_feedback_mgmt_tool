@@ -1,5 +1,11 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useNavigate,
+  useLocation,
+} from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 
 import Navbar from "./components/Navbar";
@@ -16,52 +22,60 @@ import MentorProfile from "./components/Mentor/Profile/MentorProfile";
 import Feedback from "./components/Mentor/Feedback/Feedback";
 
 //context
+import MenteesContextProvider from "./context/MenteesContextProvider";
 import UserContextProvider from "./context/UserContextProvider";
 import CommentContextProvider from "./context/CommentContextProvider";
 import AdminDashBoard from "./components/Admin1/AdminDashBoard";
 import AdminMentee from "./components/Admin1/AdminMentee";
 
-
-
 function App() {
-  const AdminComp = () =>{
+  const AdminComp = () => {
     const navigate = useNavigate();
-    const {pathname} = useLocation();
-    useEffect(()=>{
-      if(pathname ==="/admin" || pathname === "/admin/")
-        navigate('/admin/dashboard',{replace:true})
-    })
-  }
+    const { pathname } = useLocation();
+    useEffect(() => {
+      if (pathname === "/admin" || pathname === "/admin/")
+        navigate("/admin/dashboard", { replace: true });
+    });
+  };
   return (
     <UserContextProvider>
       <CommentContextProvider>
-        <BrowserRouter>
-          <div className="app">
-            <Menu />
-            <div className="flex-col w-full">
-              <Navbar />
-              <Routes>
-                <Route path="/" element={<Login />} />
-                <Route path="/registration" element={<MentorRegistration />} />
-                <Route path="/dashboard" element={<MentorDashboard />} />
-                <Route path="/Profile" element={<MentorProfile />} />
-                <Route path="/feedback" element={<Feedback />} />
-                <Route path="/admin" element={<><Layout /><AdminComp/></>}>
+        <MenteesContextProvider>
+          <BrowserRouter>
+            <div className="app">
+              <Menu />
+              <div className="flex-col w-full">
+                <Navbar />
+                <Routes>
+                  <Route path="/" element={<Login />} />
                   <Route
-                    path="/admin/dashBoard" element={<AdminDashBoard />}
+                    path="/registration"
+                    element={<MentorRegistration />}
                   />
+                  <Route path="/dashboard" element={<MentorDashboard />} />
+                  <Route path="/feedback" element={<Feedback />} />
+                  <Route path="/Profile" element={<MentorProfile />} />
                   <Route
-                    path="/admin/feedback"
-                    element={<AdminMentee />}
-                  />
-                  <Route 
-                    path="/admin/profile" element={<MentorProfile />}
-                  />
-                </Route>
-              </Routes>
+                    path="/admin"
+                    element={
+                      <>
+                        <Layout />
+                        <AdminComp />
+                      </>
+                    }
+                  >
+                    <Route
+                      path="/admin/dashBoard"
+                      element={<AdminDashBoard />}
+                    />
+                    <Route path="/admin/feedback" element={<AdminMentee />} />
+                    <Route path="/admin/profile" element={<MentorProfile />} />
+                  </Route>
+                </Routes>
+              </div>
             </div>
-          </div>
-        </BrowserRouter>
+          </BrowserRouter>
+        </MenteesContextProvider>
       </CommentContextProvider>
     </UserContextProvider>
   );
