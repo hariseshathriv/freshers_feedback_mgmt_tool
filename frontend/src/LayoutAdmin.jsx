@@ -4,6 +4,7 @@ import MenteeView from "./components/Admin/MenteeView";
 import WeeklyComments from "./components/Admin/WeeklyComments";
 import { Outlet } from "react-router-dom";
 
+<<<<<<< HEAD:frontend/src/Layout.jsx
 const Layout = () => {
   const [path, setPath] = useState("");
   return (
@@ -15,3 +16,17 @@ const Layout = () => {
 };
 
 export default Layout;
+=======
+const LayoutAdmin = ()=>{
+    const [path, setPath] = useState("");
+    return (
+        <div className="flex">
+            <SideBar />
+            <div className="flex-grow">
+            <Outlet /></div>
+        </div>
+    )
+}
+
+export default LayoutAdmin;
+>>>>>>> refs/remotes/origin/main:frontend/src/LayoutAdmin.jsx

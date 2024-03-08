@@ -1,13 +1,10 @@
 import React,{useState , useEffect , useContext} from 'react'
 import AddMenteeDashBoard from './AddMenteeDashBoard';
-import UserContext from '../../context/UserContext';
 import TopBar from './TopBar';
 
 const AdminDashBoard = ({title}) => {
   const [dateRanges, setDateRanges] = useState([]);
   const [showMenteeBox, setShowMenteeBox] = useState(false);
-  // const {user} = useContext(UserContext)
-  const user = "nitesh"
 
   const compareDates = (date)=>{
     const today = new Date();
@@ -18,7 +15,6 @@ const AdminDashBoard = ({title}) => {
   }
 
   useEffect(()=>{
-    if(user){
       const firstDate = new Date("2024-02-12");
       let data=[]
       let startDate = new Date(firstDate);
@@ -34,9 +30,7 @@ const AdminDashBoard = ({title}) => {
         data.push(ranges);
       }
       setDateRanges(data);
-    }
   },[])
-  if(!user) return <div></div>
   return (
     <div className='flex-grow'>
       <TopBar title={"Dashboard"}/>

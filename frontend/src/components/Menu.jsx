@@ -3,6 +3,7 @@ import logo from "../images/logo2.jpeg";
 import { Link, NavLink } from "react-router-dom";
 import UserContext from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
+import useUserStatus from "../context/UserContext";
 
 function Menu() {
   const { user } = useContext(UserContext);
@@ -22,8 +23,6 @@ function Menu() {
     //   });
 
     //   const data = await response.json();
-
-    //   //user.data.mentees = data.mentees;
 
     //   navigate("/feedback");
     // } catch (error) {

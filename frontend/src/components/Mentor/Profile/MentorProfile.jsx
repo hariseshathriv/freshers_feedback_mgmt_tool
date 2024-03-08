@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
-import UserContext from "../../../context/UserContext";
+import useUserStatus from "../../../context/UserContext";
 
 const MentorProfile = () => {
-  const { user } = useContext(UserContext);
+  const { user } = useUserStatus();
   // const user = {
   //   data:{
   //     mentor_name:"nitesh",
@@ -39,7 +39,7 @@ const MentorProfile = () => {
           <button className="rounded text-custom-hex-darkgrey bg-custom-hex-grey mr-10 px-3 py-1 hover:text-black hover:bg-white ">
             Edit
           </button>
-          <button className="rounded bg-custom-hex-pink text-black px-3 py-1 hover:text-custom-hex-pink hover:bg-white">
+          <button className="rounded bg-custom-hex-pink text-white px-3 py-1 hover:text-custom-hex-pink hover:bg-white">
             Save
           </button>
         </div>

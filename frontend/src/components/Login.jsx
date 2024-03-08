@@ -5,6 +5,10 @@ import logo from "../images/logo2.jpeg";
 import logo2 from "../images/jmanLogo3.png";
 import sideImage from "../images/loginSideRight.avif";
 import loginImage from "../images/loginImage.png";
+<<<<<<< HEAD
+=======
+import useUserStatus from "../context/UserContext";
+>>>>>>> refs/remotes/origin/main
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -12,11 +16,11 @@ function Login() {
     password: "",
   });
 
+  const {login} = useUserStatus();
+
   const navigate = useNavigate();
 
   const [apiResponse, setApiResponse] = useState(null);
-
-  const { user, setUserContext } = useContext(UserContext);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -35,6 +39,7 @@ function Login() {
         body: JSON.stringify(formData),
       });
 
+<<<<<<< HEAD
       const data = await response.json();
       setApiResponse(data.message);
       setUserContext(data); //update the user data here
@@ -44,6 +49,36 @@ function Login() {
         navigate("/admin");
       } else {
         navigate("/dashboard");
+=======
+      const res = await response.json();
+      setApiResponse(res.message);
+      const {data} = res
+      // setUserContext(data); //update the user data here
+      if(data.role === "ADMIN") {
+        const user = {
+          name:data.name,
+          id:data.id,
+          desg:data.designation,
+          email:data.email
+        }
+        login(user);
+        navigate("/admin");
+      }
+      else if(data.role === "MENTOR"){
+        const user = {
+          name:data.name,
+          id:data.id,
+          desg:data.designation,
+          email:data.email
+        }
+        login(user);
+        console.log("Hey i am here",data);
+        navigate("/mentor");
+      }
+      else{
+        alert("Wrong Credentials");
+        navigate("/");
+>>>>>>> refs/remotes/origin/main
       }
     } catch (error) {
       console.error("Error:", error);
