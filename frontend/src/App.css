@@ -1,0 +1,324 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.app {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+@font-face {
+  font-family: "mPlus1";
+  src: url(fonts/MPLUS1-VariableFont_wght.ttf);
+}
+body {
+  font-family: mPlus1, sans-serif;
+}
+
+/* ---------------------------- Top Navbar CSS ---------------------------- */
+
+.topNav {
+  background-color: #d1cfde;
+  color: #19105b;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 60px;
+  align-items: center;
+  padding: 20px;
+}
+
+/* -------------------------- Login Heading -------------------------- */
+@keyframes revealText {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 37%;
+  }
+}
+
+.navHeading {
+  padding-top: 4px;
+  color: #19105b;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* ---------------------------- Left Navbar CSS ---------------------------- */
+
+.navbar {
+  height: 100vh;
+  border-right: 1px solid #19105b;
+  padding: 25px;
+  width: 320px;
+  left: -1px;
+  border: 0px, 1px, 0px, 0px;
+  display: flex;
+}
+
+.nav-items {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  width: 250px;
+  padding: 10px;
+  margin: 20px 0px;
+  height: 50.22px;
+  border-radius: 5px;
+}
+
+.nav-item:hover {
+  background-color: #d1cfde;
+}
+
+/* -------------------------- LOGIN CSS -------------------------- */
+
+.jmanLogo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* transform: scaleX(0.7); */
+  transform: scale(0.7, 0.6);
+  transform-origin: left;
+  background-position-x: 0%;
+  margin-left: 0%;
+  padding: 2rem;
+
+  /* margin-right: 1100px;
+    margin-bottom: 500px; */
+}
+
+.jmanLogo img {
+  width: 100%;
+  height: fit-content;
+}
+
+.sideImage {
+  position: absolute;
+  width: 24rem;
+  height: 24rem;
+  margin-left: 55rem;
+  margin-top: 2.5rem;
+  display: inline;
+}
+
+@font-face {
+  font-family: "cursive";
+  src: url(fonts/cursive/CedarvilleCursive-Regular.ttf);
+}
+
+.loginHeading {
+  padding-top: 4px;
+  color: #4a4a4a;
+}
+
+.loginBox {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(213, 243, 255);
+  background-image: url(images/backgroundImage3.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  margin: 0;
+  padding: 0;
+  /* background-position: 0 2px; */
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login {
+  display: flex;
+  width: 400px;
+  height: 400px;
+  border-radius: 7px;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  /* box-shadow: 0 2px 4px 0 #f2f1f6, 0 3px 10px 0 #f2f1f6; */
+}
+
+.newUserRegister {
+  /* background-color: #d1cfde; */
+  color: #19105b;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.loginForm {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginDiv {
+  width: 200px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginLabel {
+  /* color: white; */
+  /* background-color: #7E78AA; */
+  border-radius: 7px;
+  /* padding: 5px 15px; */
+  width: fit-content;
+  margin-bottom: 5px;
+  color: #19105b;
+}
+
+.loginInput {
+  /* background-color: #f2f1f6; */
+  background-color: inherit;
+  padding-left: 3px;
+  margin-top: 5px;
+
+  border-bottom: 2px solid #ff6196;
+}
+
+.loginImageButton {
+  position: relative;
+  margin-left: auto;
+}
+
+.loginBtn {
+  background-color: #18105b;
+  color: white;
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 170px;
+  height: 60px;
+  padding: 5px;
+  padding-left: 30px;
+  border-radius: 60px;
+  outline: 0;
+}
+
+.loginBtn:hover {
+  background-color: #ff095c;
+}
+
+/* ----------- Mentor Registration CSS ------------- */
+
+.mentorHeading {
+  color: #4a4a4a;
+}
+
+.mentorBox {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  background-image: url(images/backgroundImage3.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  margin: 0;
+  padding: 0;
+}
+
+.mentor {
+  display: flex;
+  width: 600px;
+  height: 560px;
+
+  border-radius: 7px;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 7px;
+  padding-bottom: 6px;
+  margin-right: 8rem;
+
+  /* box-shadow: 0 6px 4px 0 #f2f1f6, 0 3px 10px 0 #f2f1f6; */
+}
+
+.regHeading {
+  margin-right: 8rem;
+}
+
+.mentorForm {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.mentorDiv {
+  width: 75%;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.mentorDivGender {
+  width: 225px;
+  padding-left: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mentorLabel {
+  color: #19105b;
+}
+
+.mentorInput {
+  border-bottom: 2px solid #ff6196;
+  width: 200px;
+  background-color: #f2f1f6;
+  outline: 0;
+}
+.mentorInputPassword {
+  border-bottom: 2px solid #ff6196;
+  width: 180px;
+  background-color: #f2f1f6;
+  outline: 0;
+}
+.show-password-icon {
+  border-bottom: 2px solid #ff6196;
+  background-color: #f2f1f6;
+}
+.show-password-icon:hover {
+  background-color: #ff095c;
+  cursor: pointer;
+}
+.mentorBtn {
+  background-color: #19105b;
+  color: white;
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 185px;
+  height: 75px;
+  padding: 5px;
+  padding-left: 30px;
+  border-radius: 60px;
+}
+
+.mentorBtn:hover {
+  background-color: #ff095c;
+}
