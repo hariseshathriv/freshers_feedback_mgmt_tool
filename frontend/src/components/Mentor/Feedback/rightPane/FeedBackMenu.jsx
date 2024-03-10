@@ -178,7 +178,12 @@ const FeedBackMenu = ({ mentee, menteeInfo }) => {
     setFeedBackList(updateList);
   };
   const [statusEdit, setStatusEdit] = useState(false);
-  const handleModal = (id = null) => {
+
+  const handleModal = (id) => {
+    // feedBackList.map((item) => {
+    //   console.log(...Object.entries(item));
+    // });
+
     count++;
     if (id == -1) {
       modalToogle(!modal);
@@ -188,14 +193,25 @@ const FeedBackMenu = ({ mentee, menteeInfo }) => {
     else setStatusEdit(true);
     setModalPayload(() => {
       let [feedback] = feedBackList.filter((item) => {
-        return item.weekNo == id;
+        if (item.id == id) {
+          //console.log("item is: " + JSON.stringify(item));
+          return { weekNo: item.weekNo, comment: item.comment };
+        }
       });
-      let lastWeek = 0;
-      if (feedBackList.length > 0 && id == null)
+      // console.log(
+      //   "feedback " +
+      //     JSON.stringify(feedback) +
+      //     "feedback.weekNo: " +
+      //     feedback.weekNo
+      // );
+      let lastWeek = feedback ? feedback.week : "0"; //feedback has week property and not weekNo
+      console.log(lastWeek + " is last week ");
+      if (feedBackList.length > 0 && id == -2)
         lastWeek = feedBackList.length + 1;
-      if (feedback) {
-        feedback = { weekNo: lastWeek, comment: "" };
-      }
+      let feedBackComment = feedback ? feedback.comment : "";
+      // if (feedback) {
+      feedback = { weekNo: lastWeek, comment: feedBackComment };
+      //}
       return feedback;
     });
     modalToogle(!modal);

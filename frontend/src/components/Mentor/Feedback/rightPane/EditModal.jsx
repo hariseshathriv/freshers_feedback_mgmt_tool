@@ -55,13 +55,13 @@
 import { useState } from "react";
 const EditModal = ({ handleModal, modalPayload, handleSave, statusEdit }) => {
   if (statusEdit == true) {
-    console.log("Edit button brought me here");
+    //console.log("Edit button brought me here");
   } else {
-    console.log("Add Commnet button brought me here");
+    //console.log("Add Commnet button brought me here");
   }
 
   const [weekFeedBack, setFeedBack] = useState(modalPayload);
-  console.log(weekFeedBack);
+  console.log("weekFeedBack: " + JSON.stringify(weekFeedBack));
   const validation = () => {
     if (!(weekFeedBack.weekNo == "" || weekFeedBack.comment == "")) {
       if (statusEdit) {
