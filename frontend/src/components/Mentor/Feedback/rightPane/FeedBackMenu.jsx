@@ -186,7 +186,6 @@ const FeedBackMenu = ({ mentee, menteeInfo }) => {
     }
     if (id == -2) setStatusEdit(false);
     else setStatusEdit(true);
-    ModalPayloadModalPayload;
     setModalPayload(() => {
       let [feedback] = feedBackList.filter((item) => {
         return item.weekNo == id;
