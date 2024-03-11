@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState , useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
 import logo from "../images/logo2.jpeg";
@@ -13,11 +13,45 @@ function Login() {
     password: "",
   });
 
-  const {login , updateMentorDetails , updateMenteeDetails} = useUserStatus();
+  const {login , updateMentorDetails , updateMenteeDetails , loginStatus} = useUserStatus();
 
   const navigate = useNavigate();
 
   const [apiResponse, setApiResponse] = useState(null);
+
+  useEffect(()=>{
+    const getUser = () => new Promise(async (res,rej) =>{
+      const user = localStorage.getItem("user");
+      const loginStatus = localStorage.getItem("loginStatus")
+      res({user,loginStatus})
+    })
+
+
+    const handleReload = async () => {
+      const data = await getUser()
+      const user = await JSON.parse(data.user)
+      const loginStatus = await JSON.parse(data.loginStatus)
+      console.log(data);
+      if(loginStatus===true){
+        const user = JSON.parse(localStorage.getItem("user"));
+        login(user);
+        if(user.role==="ADMIN"){
+          updateMentorDetails(JSON.parse(localStorage.getItem("mentorDetails")));
+          navigate("/admin");
+          console.log("admin");
+        }
+        else{
+          updateMenteeDetails(JSON.parse(localStorage.getItem("menteeDetails")));
+          navigate("/mentor");
+          console.log("mentor");
+        }
+        console.log("found")
+      }
+
+    }
+
+    handleReload()
+  },[])
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -45,10 +79,11 @@ function Login() {
           name:data.name,
           id:data.id,
           desg:data.designation,
-          email:data.email
+          email:data.email,
+          role:data.role
         }
-        updateMentorDetails(data.mentors);
         login(user);
+        updateMentorDetails(data.mentors);
         navigate("/admin");
       }
       else if(data.role === "MENTOR"){
@@ -56,9 +91,11 @@ function Login() {
           name:data.name,
           id:data.id,
           desg:data.designation,
-          email:data.email
+          email:data.email,
+          role:data.role
         }
         login(user);
+        updateMenteeDetails(data.mentees);
         console.log("Hey i am here",data);
         navigate("/mentor");
       }

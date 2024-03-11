@@ -1,20 +1,20 @@
 import feedBackData from '../feedbackData.js'
-import Feedback from './Feedback.jsx'
+import Feedback from './FeedbackComment.jsx'
 import EditModal from './EditModal.jsx'
-import commentContext from '../../../../context/commentContext.js'
 import {useState, useContext} from 'react'
+import useCommentContext from '../../../../context/commentContext.js'
 
 const FeedBackMenu = ({mentee,menteeInfo}) =>{
-  const {comment, setComment} = useContext(commentContext);
+  const {comments} = useCommentContext();
   let commentData = [];
-  if(comment!==null && comment.status === 400){
-    alert(comment.message);
+  if(comments!==null && comments.status === 400){
+    alert(comments.message);
   }
-  else if(comment!==null && comment.status===200){
-    commentData=comment.data;
+  else if(comments!==null && comments.status===200){
+    commentData=comments.data;
   }
   else{
-    console.log(comment);
+    console.log(comments);
   }
   const [feedBackList,setFeedBackList] = useState(commentData);
   const [modal,modalToogle] = useState(false);

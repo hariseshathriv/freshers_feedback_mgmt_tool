@@ -5,10 +5,10 @@ import useUserStatus from '../../context/UserContext'
 
 const AdminMentee = () => {
     const { mentorDetails } = useUserStatus();
-    const [mentors,setMentors] = useState([])
     const [mentorName, setMentorName] = useState("");
     const [mentees, setMentees] = useState([]);
-    const [menteeName , setMenteeName] = useState("");
+    const [menteeIndex , setMenteeIndex] = useState("");
+    const [menteeInfo , setMenteeInfo] = useState(null);
     // const [trainingDate, setTrainingDate] = useState(new Date());
     
     const updateMentees = async()=>{
@@ -32,7 +32,9 @@ const AdminMentee = () => {
 
     const handleMentorName = (e)=>{
         setMentorName(e.target.value);
-        setMenteeName("");
+        setMenteeIndex("");
+        setMentees([]);
+        setMenteeInfo(null);
     }
 
     useEffect(()=>{
@@ -40,6 +42,11 @@ const AdminMentee = () => {
             updateMentees();
         }
     },[mentorName])
+
+    useEffect(()=>{
+        if(menteeIndex.length>0)
+            setMenteeInfo(mentees[parseInt(menteeIndex)])
+    },[menteeIndex])
 
 
     return (
@@ -65,17 +72,14 @@ const AdminMentee = () => {
                     <label htmlFor="mentee_name">Mentee Name</label>
                     <select id='mentee_name' 
                         className='w-60 border border-solid rounded-sm px-2 py-1 text-hex-blue text-xl'
-                        value={menteeName}
-                        onChange={(e)=>{
-                            setMenteeName(e.target.value)
-                            console.log(e.target.value);
-                        }}
+                        value={menteeIndex}
+                        onChange={(e)=> setMenteeIndex(e.target.value) }
                     >
                         <option value="" selected disabled>Select Mentee</option>
                         {
                             mentees.length>0 &&  
-                            mentees.map((mentee)=>(
-                                <option value={mentee.id} key={mentee.id} className='max-w-60 overflow-hidden text-ellipsis'> {mentee.name.length>20?mentee.name.slice(0,18)+"...":mentee.name} </option>
+                            mentees.map((mentee,index)=>(
+                                <option value={index} key={mentee.id} className='max-w-60 overflow-hidden text-ellipsis'> {mentee.name.length>20?mentee.name.slice(0,18)+"...":mentee.name} </option>
                             ))
                         }
                     </select>
@@ -86,8 +90,8 @@ const AdminMentee = () => {
                 </div> */}
             </div>
             {
-                mentorName.length>0 && menteeName.length>0 &&
-                    <MenteeReview id={menteeName}/>
+                menteeInfo && 
+                    <MenteeReview id={menteeInfo.id} name={menteeInfo.name}/>
             }
         </div>
     )

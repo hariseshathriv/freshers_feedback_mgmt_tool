@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import useUserStatus from '../context/UserContext';
 
 function Navbar() {
-  const {user} = useUserStatus()
+  const {user , logout} = useUserStatus()
   const location = useLocation();
   const currentUrl = location.pathname;
 
@@ -19,7 +19,7 @@ function Navbar() {
             </p>
           <button
               className="text-purple-800 bg-transparent border border-solid border-black hover:bg-purple-800 hover:text-white active:bg-black font-bold uppercase text-xm px-3 py-1 rounded outline-none focus:outline-none mr-3 mb-1 ease-linear transition-all duration-150"
-              type="button"
+              type="button" onClick={logout}
           >LOGOUT
           </button>
         </div>

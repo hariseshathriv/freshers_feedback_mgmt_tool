@@ -5,7 +5,8 @@ export const UserContext = createContext({
         name:"",
         id:"",
         desg:"",
-        email:""
+        email:"",
+        role:""
     },
     mentorDetails:[],
     menteeDetails:[],
