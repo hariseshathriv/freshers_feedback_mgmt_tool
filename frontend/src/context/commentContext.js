@@ -1,13 +1,5 @@
-import { useContext, createContext} from 'react';
+import React, { createContext } from "react";
 
-export const CommentContext = createContext({
-        comments : {},
-        updateComments : ()=>{}
-    }
-)
+const commentContext = createContext();
 
-export default function useCommentContext(){
-    useContext(CommentContext);
-}
-
-export const CommentProvider = CommentContext.Provider;
+export default commentContext;

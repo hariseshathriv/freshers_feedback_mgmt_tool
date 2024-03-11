@@ -12,7 +12,7 @@ function Navbar() {
 
   return (
     <nav className='topNav'>
-        <h1 className='text-2xl'>{currentUrl.slice(1)}</h1>
+        <h1 className='text-2xl'>{currentUrl.slice(8)}</h1>
         <div className="container flex justify-end">
             <p className="text-2xl mr-10 hover:text-3xl ease-linear transition-all duration-150">
                  {user && user.name}

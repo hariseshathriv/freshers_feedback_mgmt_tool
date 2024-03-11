@@ -5,10 +5,7 @@ import logo from "../images/logo2.jpeg";
 import logo2 from "../images/jmanLogo3.png";
 import sideImage from "../images/loginSideRight.avif";
 import loginImage from "../images/loginImage.png";
-<<<<<<< HEAD
-=======
 import useUserStatus from "../context/UserContext";
->>>>>>> refs/remotes/origin/main
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -73,17 +70,6 @@ function Login() {
         body: JSON.stringify(formData),
       });
 
-<<<<<<< HEAD
-      const data = await response.json();
-      setApiResponse(data.message);
-      setUserContext(data); //update the user data here
-      alert("Login is successful");
-
-      if (data.data.role === "ADMIN") {
-        navigate("/admin");
-      } else {
-        navigate("/dashboard");
-=======
       const res = await response.json();
       console.log(res);
       setApiResponse(res.message);
@@ -117,7 +103,6 @@ function Login() {
       else{
         alert("Wrong Credentials");
         navigate("/");
->>>>>>> refs/remotes/origin/main
       }
     } catch (error) {
       console.error("Error:", error);

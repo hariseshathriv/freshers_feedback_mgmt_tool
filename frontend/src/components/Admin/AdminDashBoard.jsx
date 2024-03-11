@@ -47,8 +47,8 @@ const AdminDashBoard = ({title}) => {
             </tr>
           </thead>
           {
-            dateRanges.map((date)=>(
-              <tr className='bg-[#F2F1F6] border-b border-[#D1CFDE]'>
+            dateRanges.map((date,index)=>(
+              <tr className='bg-[#F2F1F6] border-b border-[#D1CFDE]' key={index}>
                 <td className='p-2 pl-2'>{date.startDate} - {date.endDate}</td>
                 <td className='p-2 pl-2'>
                   <div className={`rounded-lg p-1 px-2 inline-flex ${date.status?"bg-[#0dff09b8]":"bg-[#FF095C]"}`}>

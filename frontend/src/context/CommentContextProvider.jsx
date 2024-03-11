@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import commentContext from "./commentContext";
 
 const CommentContextProvider = ({ children }) => {
-  const [comment, setComment] = useState(null);
+  const [comment, setComment] = useState([]);
   const setCommentContext = (commentData) => {
     setComment(commentData);
   };

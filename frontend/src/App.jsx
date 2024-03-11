@@ -20,13 +20,12 @@ import { UserProvider } from "./context/UserContext";
 import AdminDashBoard from "./components/Admin/AdminDashBoard";
 import AdminMentee from "./components/Admin/AdminMentee";
 import LayoutMentor from "./LayoutMentor";
-import { CommentProvider } from "./context/commentContext";
 
 function App() {
   const MentorComp = () => {
     const { pathname } = useLocation();
+    const navigate = useNavigate();
     useEffect(() => {
-      const navigate = useNavigate();
       if (pathname === "/mentor" || pathname === "/mentor/")
         navigate("/mentor/dashboard", { replace: true });
     });
@@ -91,13 +90,8 @@ function App() {
     setMenteeDetails(data);
   }
 
-  const updateComments = (comment)=>{
-    setComments(comment);
-  }
-
   return (
     <UserProvider value={{ user, loginStatus, login, logout , mentorDetails , menteeDetails , updateMentorDetails , updateMenteeDetails }}>
-      <CommentProvider value={{comments , updateComments}}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Login />} />
@@ -134,7 +128,6 @@ function App() {
           }
           </Routes>
         </BrowserRouter>
-      </CommentProvider>
     </UserProvider>
   );
 }

@@ -44,6 +44,7 @@ const AdminMentee = () => {
     },[mentorName])
 
     useEffect(()=>{
+        setMenteeInfo(null);
         if(menteeIndex.length>0)
             setMenteeInfo(mentees[parseInt(menteeIndex)])
     },[menteeIndex])

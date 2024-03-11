@@ -14,15 +14,16 @@ const MenteeReview = ({id , name}) => {
         },
       })
       const data = await res.json();
+      console.log(data);
       console.log(data.data);
-      setComments(data.data);
+      if(data.data) setComments(data.data);
     } catch (error) {
       console.error(error);
     }
   }
   useEffect(()=>{
     fetchMenteeData();
-  },[])
+  },[name])
   return (
     <div>
         <div className='px-20'>
@@ -34,7 +35,7 @@ const MenteeReview = ({id , name}) => {
             {
               comments.length>0 && 
                 comments.map((eachComment)=>(
-                  <div className='bg-hex-grey p-2 flex justify-between'>
+                  <div className='bg-hex-grey p-2 flex justify-between' key={eachComment.week}>
                     <div className='px-1 w-1/12'>Week {eachComment.week}</div>
                     <div className="px-5 w-10/12">{eachComment.comment}</div>
                   </div>
