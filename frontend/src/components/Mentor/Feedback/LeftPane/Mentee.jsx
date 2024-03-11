@@ -1,5 +1,6 @@
 import { useContext } from "react";
-import commentContext from "../../../../context/commentContext";
+import useCommentContext from "../../../../context/commentContext";
+
 
 const Mentee = ({ id, name, setMentee, mentee }) => {
   const { comment, setCommentContext } = useContext(commentContext);

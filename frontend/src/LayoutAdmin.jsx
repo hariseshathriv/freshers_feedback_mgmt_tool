@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import AdminPage from "./components/Admin/AdminPage";
-import MenteeView from "./components/Admin/MenteeView";
-import WeeklyComments from "./components/Admin/WeeklyComments";
+import SideBar from "./components/Admin/SideBar"
 import { Outlet } from "react-router-dom";
 
 <<<<<<< HEAD:frontend/src/Layout.jsx
