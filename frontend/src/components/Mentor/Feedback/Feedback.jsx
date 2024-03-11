@@ -62,31 +62,30 @@
 import { useState, useContext, useEffect } from "react";
 import Mentees from "./LeftPane/Mentees";
 import FeedBackMenu from "./rightPane/FeedBackMenu";
-// import UserContext from "../../../context/UserContexts";
-import useUserStatus from "../../../context/UserContext";
+import UserContext from "../../../context/UserContexts";
 import MenteesContext from "../../../context/MenteesContext";
 const Feedback = () => {
-  const { user , menteeDetails } = useUserStatus();
-  const [mentees,setMentees] = useState(menteeDetails);
-  // useEffect(() => {
-  //   const getmentees = async () => {
-  //     try {
-  //       const apiUrl = "http://localhost:3001/api/users/get-mentees/" + 41;
-  //       const response = await fetch(apiUrl, {
-  //         method: "GET",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //       });
-  //       const data = await response.json();
-  //       await setMentees(Object.values(data.mentees));
-  //     } catch (error) {
-  //       console.error("Error:", error);
-  //     }
-  //   };
+  const { user } = useContext(UserContext);
+  let { mentees, setMentees } = useContext(MenteesContext);
+  useEffect(() => {
+    const getmentees = async () => {
+      try {
+        const apiUrl = "http://localhost:3001/api/users/get-mentees/" + 41;
+        const response = await fetch(apiUrl, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const data = await response.json();
+        await setMentees(Object.values(data.mentees));
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    };
 
-  //   getmentees();
-  // }, []);
+    getmentees();
+  }, []);
 
   // const [mentees, setMentees] = useState(user.data.mentees);
   const [mentee, setMentee] = useState(null);
