@@ -94,13 +94,15 @@ function Login() {
         navigate("/admin");
       } else if (data.role === "MENTOR") {
         const user = {
-          name: data.name,
+          name: data.mentor_name,
           id: data.id,
           desg: data.designation,
           email: data.email,
           role: data.role,
         };
+        // console.log(user);
         login(user);
+        // console.log(data.mentees, typeof data.mentees);
         updateMenteeDetails(data.mentees);
         console.log("Hey i am here", data);
         navigate("/mentor");

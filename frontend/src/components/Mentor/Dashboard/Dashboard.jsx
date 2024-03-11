@@ -4,9 +4,11 @@ import Mentees from "./Mentees";
 import UserContexts from "../../../context/UserContexts.js";
 import MenteesContext from "../../../context/MenteesContext";
 import feedback from "../Feedback/feedbackData.js";
+import useUserStatus from '../../../context/UserContext.js'
 
 const Dashboard = () => {
   // const [showMentee , setShowMentee] = useState(false);
+  const {menteeDetails} = useUserStatus();
 
   const { user } = useContext(UserContexts); // user is the res's data not the res
 
@@ -17,26 +19,27 @@ const Dashboard = () => {
   mentees = mentees ?? feedback; //if no no mentees then it won't crash
 
   useEffect(() => {
-    const getmentees = async () => {
-      try {
-        const apiUrl = "http://localhost:3001/api/users/get-mentees/" + user.id;
-        const response = await fetch(apiUrl, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        const data = await response.json();
-        console.log(data.mentees);
-        console.log(typeof data.mentees);
-        setMentees(data.mentees);
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    };
+    setMentees(menteeDetails);
+    // const getmentees = async () => {
+    //   try {
+    //     const apiUrl = "http://localhost:3001/api/users/get-mentees/" + user.id;
+    //     const response = await fetch(apiUrl, {
+    //       method: "GET",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //     });
+    //     const data = await response.json();
+    //     // console.log("Hello GUys",menteeDetails,typeof menteeDetails);
+    //     // console.log(data.mentees);
+    //     // console.log(typeof data.mentees);
+    //   } catch (error) {
+    //     console.error("Error:", error);
+    //   }
+    // };
 
-    getmentees();
-  }, []);
+    // getmentees();
+  },[]);
 
   return (
     <>
