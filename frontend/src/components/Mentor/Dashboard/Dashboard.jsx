@@ -4,11 +4,11 @@ import Mentees from "./Mentees";
 import UserContexts from "../../../context/UserContexts.js";
 import MenteesContext from "../../../context/MenteesContext";
 import feedback from "../Feedback/feedbackData.js";
-import useUserStatus from '../../../context/UserContext.js'
+import useUserStatus from "../../../context/UserContext.js";
 
 const Dashboard = () => {
   // const [showMentee , setShowMentee] = useState(false);
-  const {menteeDetails} = useUserStatus();
+  const { menteeDetails } = useUserStatus();
 
   const { user } = useContext(UserContexts); // user is the res's data not the res
 
@@ -39,12 +39,12 @@ const Dashboard = () => {
     // };
 
     // getmentees();
-  },[]);
+  }, []);
 
   return (
     <>
       <div className="flex h-screen">
-        <div className="w-1/5">
+        <div className="w-4/5">
           <Mentees mentees={mentees} mentee={mentee} setMentee={setMentee} />
         </div>
       </div>

@@ -220,7 +220,9 @@ const FeedBackMenu = ({ mentee, menteeInfo }) => {
     <>
       <div className="flex flex-col gap-3 ml-3 mt-8 mr-3 py-3 bg-white">
         <div className="flex justify-center mr-3">
-          <span className="text-3xl ml-auto">Mentee: {menteeInfo[0].name}</span>
+          <span className="text-3xl ml-auto">
+            Mentee: <span className="text-hex-blue">{menteeInfo[0].name}</span>
+          </span>
           <button
             onClick={() => handleModal(-2)} // -2 because we don't want it to just turn toggle off instead take week and comment from the user
             className="bg-green-600 rounded border border-solid font-bold text-white px-4 ml-auto"

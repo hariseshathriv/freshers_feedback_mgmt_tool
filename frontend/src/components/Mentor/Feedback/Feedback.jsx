@@ -69,8 +69,10 @@ const Feedback = () => {
   let { mentees, setMentees } = useContext(MenteesContext);
   useEffect(() => {
     const getmentees = async () => {
+      // console.log("feedback user is: ");
+      // console.log(user);
       try {
-        const apiUrl = "http://localhost:3001/api/users/get-mentees/" + 41;
+        const apiUrl = "http://localhost:3001/api/users/get-mentees/" + user.id;
         const response = await fetch(apiUrl, {
           method: "GET",
           headers: {
@@ -79,6 +81,8 @@ const Feedback = () => {
         });
         const data = await response.json();
         await setMentees(Object.values(data.mentees));
+        console.log("Mentees are: ");
+        console.log(data.mentees);
       } catch (error) {
         console.error("Error:", error);
       }

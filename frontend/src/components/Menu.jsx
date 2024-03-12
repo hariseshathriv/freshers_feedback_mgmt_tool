@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import logo from "../images/logo2.jpeg";
+import logo from "../images/jmanLogo3.png";
 import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import useUserStatus from "../context/UserContext";
@@ -14,7 +14,7 @@ function Menu() {
       <nav className="navbar">
         <div className="navBox">
           <a href="/">
-            <img src={logo} alt="logo" className="w-36" />
+            <img src={logo} alt="logo" className="w-44" />
           </a>
 
           <ul className="nav-items">

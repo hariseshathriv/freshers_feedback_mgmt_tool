@@ -5,8 +5,8 @@ import MenteeContext from "../../../../context/MenteeContext";
 const Mentee = ({ id, name, setMentee, mentee }) => {
   const { comment, setCommentContext } = useContext(commentContext);
   const { setMenteeContext } = useContext(MenteeContext);
-  const style = `w-3/4 border border-solid border-black rounded-md text-2xl hover:bg-purple-800 hover:text-black ${
-    mentee === id ? "bg-purple-800 text-black" : "bg-white"
+  const style = `w-4/4 text-hex-lightgrey border border-solid border-black rounded-md pt-1 pb-1 text-2xl hover:bg-hex-lightgrey hover:text-black ${
+    mentee === id ? "bg-hex-darkpink" : "bg-hex-blue"
   }`;
   // console.log(mentee+" "+id +" "+style);
   const handleSubmit = () => {
