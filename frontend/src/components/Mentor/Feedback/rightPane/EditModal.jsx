@@ -52,7 +52,9 @@
 // };
 // export default EditModal;
 
-import { useState } from "react";
+import { useState, useContext } from "react";
+import MenteeContext from "../../../../context/MenteeContext";
+
 const EditModal = ({ handleModal, modalPayload, handleSave, statusEdit }) => {
   if (statusEdit == true) {
     //console.log("Edit button brought me here");
@@ -61,6 +63,36 @@ const EditModal = ({ handleModal, modalPayload, handleSave, statusEdit }) => {
   }
 
   const [weekFeedBack, setFeedBack] = useState(modalPayload);
+  const { menteeContext } = useContext(MenteeContext);
+  const commentAdd = async () => {
+    const formData = {
+      mentee_id: menteeContext,
+      comment: weekFeedBack.comment,
+    };
+
+    try {
+      const apiUrl = "http://localhost:3001/api/users/comments/";
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const responseData = await response.json();
+      console.log(responseData);
+      if (responseData.status === 400) {
+        alert(responseData.data);
+      } else {
+        alert("Comment Added Successfully.");
+        //setFeedBackList(responseData.data);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   console.log("weekFeedBack: " + JSON.stringify(weekFeedBack));
   const validation = () => {
     if (!(weekFeedBack.weekNo == "" || weekFeedBack.comment == "")) {
@@ -68,8 +100,9 @@ const EditModal = ({ handleModal, modalPayload, handleSave, statusEdit }) => {
         //edit wali api
       } else {
         //add comment wali api
+        commentAdd();
       }
-      handleSave(weekFeedBack);
+      //handleSave(weekFeedBack);
       handleModal(-1);
     } else {
       console.log("save Not ok");

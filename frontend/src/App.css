@@ -19,14 +19,14 @@
   src: url(fonts/MPLUS1-VariableFont_wght.ttf);
 }
 body {
-  font-family: mPlus1, sans-serif;
+  font-family: mPlus1, sans-serif !important;
 }
 
 /* ---------------------------- Top Navbar CSS ---------------------------- */
 
 .topNav {
-  background-color: #d1cfde;
-  color: #19105b;
+  background-color: #19105b;
+  color: #d1cfde;
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -58,7 +58,7 @@ body {
   height: 100vh;
   border-right: 1px solid #19105b;
   padding: 25px;
-  width: 320px;
+  width: 270px;
   left: -1px;
   border: 0px, 1px, 0px, 0px;
   display: flex;
@@ -73,7 +73,7 @@ body {
 .nav-item {
   display: flex;
   align-items: center;
-  width: 250px;
+  width: 200px;
   padding: 10px;
   margin: 20px 0px;
   height: 50.22px;
