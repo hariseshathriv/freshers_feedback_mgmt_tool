@@ -56,7 +56,7 @@ function App() {
   const [comments, setComments] = useState({});
 
   const login = (user) => {
-    console.log(user);
+    //console.log(user);
     localStorage.setItem("loginStatus", true);
     localStorage.setItem("user", JSON.stringify(user));
     setLoginStatus(true);

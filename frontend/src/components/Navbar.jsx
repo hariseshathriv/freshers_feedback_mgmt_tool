@@ -5,7 +5,7 @@ import useUserStatus from "../context/UserContext";
 
 function Navbar() {
   const { user, logout } = useUserStatus();
-  console.log(user.name);
+  //console.log(user.name);
   const location = useLocation();
   const currentUrl = location.pathname;
   const nameOfPlace = currentUrl.slice(8);

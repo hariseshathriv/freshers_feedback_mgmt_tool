@@ -10,7 +10,7 @@ const MentorProfile = () => {
   //     designation:"jkdsjkj"
   //   }
   // }
-  console.log(user);
+  //console.log(user);
   return (
     <div>
       <h2 className="mt-3 ml-4 text-2xl text-hex-blue">Account Information</h2>
