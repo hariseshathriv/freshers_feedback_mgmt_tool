@@ -103,7 +103,7 @@ const EditModal = ({
             X
           </button>
         </div>
-        <input
+        {/* <input
           className="w-1/4 px-2 text-black"
           defaultValue={(weekFeedBack && weekFeedBack.weekNo) || ""}
           onChange={(e) => {
@@ -115,7 +115,7 @@ const EditModal = ({
           max={52}
           type="number"
           placeholder="Week"
-        />
+        /> */}
         <textarea
           className="w-full h-3/4 resize-y outline-none rounded-lg text-black text-xl px-3 py-3"
           placeholder="Start typing your comment here! "
