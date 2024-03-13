@@ -297,9 +297,17 @@ body {
   background-color: #f2f1f6;
   outline: 0;
 }
+.loginInputPassword {
+  border-bottom: 2px solid #ff6196;
+  width: 180px;
+  outline: 0;
+}
 .show-password-icon {
   border-bottom: 2px solid #ff6196;
   background-color: #f2f1f6;
+}
+.show-password-icon2 {
+  border-bottom: 2px solid #ff6196;
 }
 .show-password-icon:hover {
   background-color: #ff095c;

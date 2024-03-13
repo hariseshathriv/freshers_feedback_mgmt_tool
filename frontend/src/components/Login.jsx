@@ -171,13 +171,13 @@ function Login() {
                     name="password"
                     type={typePassword}
                     id="password"
-                    className="loginInput outline-none mentorInputPassword"
+                    className="loginInput outline-none loginInputPassword"
                     placeholder="********"
                     required
                     onChange={handlePassword}
                   />
                   <span
-                    class="show-password-icon"
+                    class="show-password-icon2 cursor-pointer"
                     onClick={() => {
                       if (typePassword === "password")
                         setTypePassword((prev) => "text");
