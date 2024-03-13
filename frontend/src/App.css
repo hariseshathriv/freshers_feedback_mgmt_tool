@@ -58,7 +58,7 @@ body {
   height: 100vh;
   border-right: 1px solid #19105b;
   padding: 25px;
-  width: 270px;
+  width: 200px;
   left: -1px;
   border: 0px, 1px, 0px, 0px;
   display: flex;
@@ -73,7 +73,7 @@ body {
 .nav-item {
   display: flex;
   align-items: center;
-  width: 200px;
+  width: 130px;
   padding: 10px;
   margin: 20px 0px;
   height: 50.22px;
@@ -321,4 +321,47 @@ body {
 
 .mentorBtn:hover {
   background-color: #ff095c;
+}
+/* loader code*/
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed; /* Or absolute */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7); /* Light white background */
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+.loader {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top: 4px solid #3498db;
+  width: 40px;
+  height: 40px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

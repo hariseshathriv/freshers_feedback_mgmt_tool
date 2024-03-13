@@ -63,7 +63,7 @@ function MentorRegistration() {
 
   const handlePassword = (e) => {
     setPassword(e.target.value);
-    handleInputChange();
+    handleInputChange(e);
   };
 
   return (

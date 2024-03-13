@@ -3,6 +3,9 @@ import logo from "../images/jmanLogo3.png";
 import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import useUserStatus from "../context/UserContext";
+import { RiAccountCircleLine } from "react-icons/ri";
+import { SlHome } from "react-icons/sl";
+import { LuNetwork } from "react-icons/lu";
 
 function Menu() {
   const { user, updateMenteeDetails } = useUserStatus();
@@ -14,7 +17,7 @@ function Menu() {
       <nav className="navbar">
         <div className="navBox">
           <a href="/">
-            <img src={logo} alt="logo" className="w-44" />
+            <img src={logo} alt="logo" className="w-32 h-10" />
           </a>
 
           <ul className="nav-items">
@@ -27,7 +30,8 @@ function Menu() {
                   } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-purple-800 lg:p-0`
                 }
               >
-                Dashboard
+                DashBoard&nbsp;&nbsp;
+                <SlHome className="inline mb-1.5" />
               </NavLink>
             </li>
             <li className="nav-item">
@@ -39,7 +43,8 @@ function Menu() {
                   } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-purple-800 lg:p-0`
                 }
               >
-                Feedback
+                Feedback&nbsp;&nbsp;
+                <LuNetwork className="inline mb-1.5" />
               </NavLink>
             </li>
             <li className="nav-item">
@@ -51,7 +56,8 @@ function Menu() {
                   } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-purple-800 lg:p-0`
                 }
               >
-                My Profile
+                My Profile&nbsp;&nbsp;
+                <RiAccountCircleLine className="inline mb-1.5" />
               </NavLink>
             </li>
           </ul>

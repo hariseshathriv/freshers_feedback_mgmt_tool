@@ -13,11 +13,11 @@ function Navbar() {
 
   return (
     <nav className="topNav">
-      <h1 className="text-2xl text-hex-lightgrey">
+      <h1 className="text-xl text-hex-lightgrey">
         {nameOfPlace.charAt(0).toUpperCase() + nameOfPlace.slice(1)}
       </h1>
       <div className="container flex justify-end">
-        <p className="text-2xl text-hex-lightgrey mr-10 hover:text-3xl ease-linear transition-all duration-150">
+        <p className="text-xl text-hex-lightgrey mr-10 hover:text-2xl mt-1 ease-linear transition-all duration-150">
           {user && user.name}
         </p>
         <button
