@@ -29,16 +29,16 @@ const Profile = () => {
             <label className="text-hex-darkgrey text-l font-bold">
               Designation
             </label>
-            <input className="rounded px-2 w-60" value={user.desg} />
+            <input className="rounded px-2 w-60" value={user.desg} disabled/>
           </div>
-          <div className="flex justify-end mt-8">
+          {/* <div className="flex justify-end mt-8">
             <button className="rounded text-hex-darkgrey bg-hex-grey mr-10 px-3 py-1 hover:text-black hover:bg-white ">
               Edit
             </button>
             <button className="rounded bg-hex-pink text-white px-3 py-1 hover:text-hex-pink hover:bg-white">
               Save
             </button>
-          </div>
+          </div> */}
         </form>
       </div>
       </div>
