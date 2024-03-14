@@ -17,6 +17,7 @@ import Feedback from "./components/Mentor/Feedback/Feedback";
 import { UserProvider } from "./context/UserContext";
 import AdminDashBoard from "./components/Admin/AdminDashBoard";
 import AdminMentee from "./components/Admin/AdminMentee";
+import Profile from "./components/Admin/Profile"
 import LayoutMentor from "./LayoutMentor";
 import MenteesContextProvider from "./context/MenteesContextProvider";
 import MenteeContextProvider from "./context/MenteeContextProvider";
@@ -154,7 +155,7 @@ function App() {
                         />
                         <Route
                           path="/admin/profile"
-                          element={<MentorProfile />}
+                          element={<Profile />}
                         />
                       </Route>
                     </>

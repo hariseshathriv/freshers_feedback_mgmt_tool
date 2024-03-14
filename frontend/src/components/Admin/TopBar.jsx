@@ -28,7 +28,7 @@ const TopBar = ({title}) => {
                 {
                   showLogOut && 
                   <div 
-                    className={` opacity-100 absolute top-8 right-0 flex items-center bg-hex-blue p-1 text-hex-lightgrey rounded-md drop-shadow-lg`}
+                    className={` opacity-100 absolute top-8 right-0 flex items-center bg-hex-blue p-1 text-hex-lightgrey rounded-md drop-shadow-lg cursor-pointer`}
                     onClick={handleLogout}
                   >
                     <span className='px-1'>Log Out</span>

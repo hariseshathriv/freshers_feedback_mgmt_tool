@@ -34,9 +34,9 @@ const AdminDashBoard = ({title}) => {
   return (
     <div className='flex-grow'>
       <TopBar title={"Dashboard"}/>
-      <div className='p-12 mt-2'>
+      <div className='px-12 py-4 mt-2'>
         <div className='flex py-10 justify-end'>
-          <span className='inline-flex bg-hex-blue p-2 text-hex-lightgrey' onClick={()=>setShowMenteeBox(true)}>Add Mentee</span>
+          <span className='inline-flex bg-hex-blue p-2 text-hex-lightgrey cursor-pointer' onClick={()=>setShowMenteeBox(true)}>Add Mentee</span>
         </div>
         <div className='bg-[#19105B] p-2 text-[#F2F1F6] text-lg'>Feedbacks</div>
         <table className='w-full border-none text-left text-[#19105B]'>
